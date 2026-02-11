@@ -1,1181 +1,1715 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>American House Brand Perception Audit</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>American House Brand Perception Audit - Complete</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: hsl(222, 25%, 7%);
+  color: hsl(210, 20%, 92%);
+}
+h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #1a1a1a;
-            color: #ffffff;
-            overflow: hidden;
-        }
+.slide-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.2rem; font-weight: 700;
+  background: linear-gradient(135deg, hsl(55, 100%, 65%) 0%, hsl(50, 95%, 55%) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.15; margin-bottom: 16px;
+}
+.slide-title-hero { font-size: 4rem; }
+.slide-subtitle {
+  font-size: 1.25rem; color: hsl(215, 15%, 55%);
+  margin-bottom: 40px; max-width: 800px; line-height: 1.6;
+}
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem; font-weight: 600;
+  color: hsl(55, 100%, 65%);
+  margin-bottom: 20px; margin-top: 32px;
+  padding-bottom: 8px; border-bottom: 2px solid hsla(230, 55%, 55%, 0.3);
+  display: inline-block;
+}
+.subsection-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem; font-weight: 600;
+  color: hsl(55, 100%, 65%);
+  margin-top: 24px; margin-bottom: 16px;
+}
 
-        .presentation {
-            width: 100vw;
-            height: 100vh;
-            position: relative;
-        }
+.card {
+  border-left: 4px solid hsl(230, 55%, 55%);
+  background: hsl(222, 22%, 11%);
+  border-radius: 12px; padding: 20px;
+  box-shadow: 0 4px 24px -4px hsla(0, 0%, 0%, 0.3);
+  margin-bottom: 16px;
+}
+.card h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem; font-weight: 600;
+  color: hsl(55, 100%, 65%); margin-bottom: 12px;
+}
+.card p, .card-body { color: hsl(215, 15%, 55%); line-height: 1.6; font-size: 1rem; }
+.card-highlight { border-left-color: hsl(230, 55%, 55%); background: hsla(230, 55%, 55%, 0.1); }
+.card-insight { border-left-color: hsl(190, 80%, 50%); background: hsla(190, 80%, 50%, 0.1); }
+.card-insight h4 { color: hsl(190, 80%, 88%); }
+.card-warning { border-left-color: hsl(38, 92%, 50%); background: hsla(38, 92%, 50%, 0.1); }
+.card-warning h4 { color: hsl(38, 92%, 90%); }
+.card-success { border-left-color: hsl(142, 60%, 40%); background: hsla(142, 60%, 40%, 0.1); }
+.card-success h4 { color: hsl(142, 60%, 85%); }
 
-        .slide {
-            width: 100%;
-            height: 100%;
-            display: none;
-            padding: 60px 80px;
-            background: radial-gradient(ellipse at bottom right, #2a2a2a 0%, #1a1a1a 60%);
-            position: relative;
-            overflow-y: auto;
-        }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 16px 0; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
 
-        .slide.active {
-            display: flex;
-            flex-direction: column;
-        }
+table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px -4px hsla(0, 0%, 0%, 0.3); font-size: 0.95rem; margin: 16px 0; }
+th {
+  background: linear-gradient(135deg, hsl(230, 55%, 55%) 0%, hsl(270, 45%, 45%) 100%);
+  color: hsl(210, 20%, 98%); padding: 14px 16px; text-align: left;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+}
+td { padding: 14px 16px; border-bottom: 1px solid hsla(222, 15%, 18%, 0.5); color: hsl(215, 15%, 55%); }
+tbody { background: hsla(222, 22%, 11%, 0.5); }
+tr.highlight-row { background: hsla(55, 100%, 65%, 0.1); }
+tr.highlight-row td { color: hsl(55, 100%, 65%); font-weight: 600; }
 
-        .slide::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 60%;
-            height: 40%;
-            background: radial-gradient(ellipse at bottom right, rgba(102, 126, 234, 0.03), transparent);
-            pointer-events: none;
-        }
+.data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin: 16px 0; }
+.data-point {
+  border: 2px solid hsl(222, 15%, 18%); background: hsl(222, 22%, 11%);
+  border-radius: 12px; padding: 20px; text-align: center;
+}
+.data-point.highlighted { border-color: hsl(55, 100%, 65%); box-shadow: 0 0 40px -10px hsla(55, 100%, 65%, 0.15); }
+.data-value {
+  display: block; font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem; font-weight: 700;
+  background: linear-gradient(135deg, hsl(55, 100%, 65%) 0%, hsl(50, 95%, 55%) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.data-label { display: block; margin-top: 8px; font-size: 1rem; color: hsl(215, 15%, 55%); }
 
-        .logo {
-            position: absolute;
-            top: 30px;
-            left: 80px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 20px;
-            font-weight: 700;
-            color: #fff;
-            z-index: 10;
-        }
+ul { list-style: none; padding: 0; }
+ul li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; color: hsl(215, 15%, 55%); line-height: 1.6; font-size: 1rem; }
+ul li::before { content: ''; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: hsl(55, 100%, 65%); margin-top: 9px; }
+strong { color: hsl(55, 100%, 65%); font-weight: 600; }
+.text-destructive { color: hsl(0, 72%, 51%); }
+.text-success { color: hsl(142, 60%, 85%); }
+.checkmark { color: hsl(142, 60%, 85%); font-weight: bold; }
+.xmark { color: hsl(0, 72%, 51%); font-weight: bold; }
 
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        }
+.logo { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+.logo-icon {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, hsl(230, 55%, 55%) 0%, hsl(270, 45%, 45%) 100%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+.logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 1.125rem; font-weight: 700; letter-spacing: 0.05em; }
 
-        .slide-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #ffed4e;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
+.quote {
+  font-style: italic;
+  padding: 1.5rem;
+  background: hsl(222, 22%, 11%);
+  border-left: 4px solid hsl(215, 15%, 40%);
+  margin: 1rem 0;
+  color: hsl(215, 15%, 65%);
+  border-radius: 8px;
+}
 
-        .slide-subtitle {
-            font-size: 1.3rem;
-            color: #b0b0b0;
-            margin-bottom: 50px;
-            max-width: 1000px;
-        }
+.footnote { margin-top: 16px; font-size: 0.85rem; color: hsl(215, 15%, 40%); line-height: 1.5; }
 
-        .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(222, 18%, 16%); border-radius: 3px; }
 
-        .section-title {
-            font-size: 1.8rem;
-            color: #ffed4e;
-            margin-bottom: 20px;
-            margin-top: 20px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-            display: inline-block;
-        }
+body { overflow-y: auto; }
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 48px;
+}
+.section {
+  padding: 60px 0;
+  border-bottom: 1px solid hsla(222, 15%, 18%, 0.5);
+  position: relative;
+}
+.section:last-child { border-bottom: none; }
 
-        .subsection-title {
-            font-size: 1.4rem;
-            color: #ffed4e;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 4px solid #667eea;
-            border-radius: 8px;
-            padding: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-left-color: #ffed4e;
-            transform: translateY(-2px);
-        }
-
-        .card h3, .card h4 {
-            color: #ffed4e;
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: #d0d0d0;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .card-highlight {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
-            border-left-color: #764ba2;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
-            border-left: 4px solid #667eea;
-            padding: 25px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .highlight-box h3, .highlight-box h4 {
-            color: #ffed4e;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .highlight-box p {
-            color: #d0d0d0;
-            line-height: 1.7;
-        }
-
-        .insight-box {
-            background: rgba(13, 202, 240, 0.1);
-            border-left: 4px solid #0dcaf0;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .insight-box h3, .insight-box h4 {
-            color: #0dcaf0;
-            margin-bottom: 12px;
-        }
-
-        .insight-box p {
-            color: #d0d0d0;
-            line-height: 1.7;
-        }
-
-        .warning-box {
-            background: rgba(255, 193, 7, 0.1);
-            border-left: 4px solid #ffc107;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .warning-box h3, .warning-box h4 {
-            color: #ffc107;
-            margin-bottom: 12px;
-        }
-
-        .warning-box p {
-            color: #d0d0d0;
-            line-height: 1.7;
-        }
-
-        .success-box {
-            background: rgba(25, 135, 84, 0.15);
-            border-left: 4px solid #198754;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .success-box h3, .success-box h4 {
-            color: #75fb4c;
-            margin-bottom: 12px;
-        }
-
-        .success-box p {
-            color: #d0d0d0;
-            line-height: 1.7;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        ul li {
-            padding-left: 30px;
-            margin-bottom: 10px;
-            position: relative;
-            line-height: 1.6;
-            color: #d0d0d0;
-        }
-
-        ul li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: #ffed4e;
-            font-weight: bold;
-        }
-
-        .data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .data-point {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(102, 126, 234, 0.3);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .data-point:hover {
-            border-color: #667eea;
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .data-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #ffed4e;
-            display: block;
-        }
-
-        .data-label {
-            font-size: 0.9rem;
-            color: #b0b0b0;
-            margin-top: 8px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.9rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        th {
-            background: #667eea;
-            color: #fff;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        td {
-            padding: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            color: #d0d0d0;
-        }
-
-        tr:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .highlight-row {
-            background: rgba(255, 237, 78, 0.1) !important;
-        }
-
-        .highlight-row td {
-            color: #ffed4e;
-            font-weight: 600;
-        }
-
-        .nav-controls {
-            position: fixed;
-            bottom: 30px;
-            right: 80px;
-            display: flex;
-            gap: 15px;
-            z-index: 100;
-        }
-
-        .nav-btn {
-            background: rgba(102, 126, 234, 0.2);
-            border: 2px solid #667eea;
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background: #667eea;
-            transform: translateY(-2px);
-        }
-
-        .nav-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .slide-counter {
-            position: fixed;
-            bottom: 30px;
-            left: 80px;
-            color: #808080;
-            font-size: 16px;
-            z-index: 100;
-        }
-
-        strong {
-            color: #ffed4e;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .slide.active .content > * {
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        /* Scrollbar styling for dark theme */
-        .slide::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        .slide::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .slide::-webkit-scrollbar-thumb {
-            background: rgba(102, 126, 234, 0.5);
-            border-radius: 5px;
-        }
-
-        .slide::-webkit-scrollbar-thumb:hover {
-            background: #667eea;
-        }
-    </style>
+.appendix-marker {
+  text-align: center;
+  padding: 48px 0;
+  margin: 48px 0;
+  border-top: 2px solid hsla(55, 100%, 65%, 0.3);
+  border-bottom: 2px solid hsla(55, 100%, 65%, 0.3);
+}
+.appendix-marker h1 {
+  font-size: 3rem;
+  background: linear-gradient(135deg, hsl(55, 100%, 65%) 0%, hsl(50, 95%, 55%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+</style>
 </head>
 <body>
-    <div class="presentation">
-        <!-- Slide 1: Title & Overview -->
-        <div class="slide active">
-            <div class="logo">
-                <div class="logo-icon"></div>
-                FROM THE FUTURE
-            </div>
-            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
-                <h1 class="slide-title">American House<br>Brand Perception Audit</h1>
-                <p class="slide-subtitle">Understanding how American House is perceived across markets, audiences, and geographies to inform strategic brand decisions</p>
-            </div>
-        </div>
+<div class="page">
 
-        <!-- Slide 2: Research Scope -->
-        <div class="slide">
-            <h1 class="slide-title">Research Scope</h1>
-            <div class="content">
-                <div class="card-grid">
-                    <div class="card">
-                        <h4>States</h4>
-                        <p>Michigan, Missouri, Florida, Tennessee, Illinois, New Hampshire</p>
-                    </div>
-                    <div class="card">
-                        <h4>Audiences</h4>
-                        <p>Prospective residents/families, Current residents/families, Investors, Leadership</p>
-                    </div>
-                    <div class="card">
-                        <h4>Methods</h4>
-                        <p>Testimonial analysis, Surveys, 1-1 Interviews, Digital footprint review</p>
-                    </div>
-                    <div class="card">
-                        <h4>Competitors</h4>
-                        <p>Sunrise, Vi Living, Mather LifeWays, Kensington Senior Living</p>
-                    </div>
-                </div>
+<!-- Title Slide -->
+<div class="section">
+  <div class="logo">
+    <div class="logo-icon"></div>
+    <span class="logo-text">FROM THE FUTURE</span>
+  </div>
+  <h1 style="font-size: 4rem; background: linear-gradient(135deg, hsl(55, 100%, 65%) 0%, hsl(50, 95%, 55%) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.15; margin-bottom: 24px;">American House<br>Brand Perception Audit</h1>
+  <p class="slide-subtitle">Understanding how American House is perceived across markets, audiences, and geographies to inform strategic brand decisions</p>
+</div>
 
-                <div class="highlight-box">
-                    <h3>Preliminary Research Complete</h3>
-                    <p>We've already analyzed <strong>125 testimonials</strong> across all providers (American House, Vi Living, Mather LifeWays, Sunrise, Kensington) from multiple platforms (Caring.com, A Place for Mom, Google, Facebook), plus conducted a competitive website/CMS audit revealing digital investment levels (e.g., Sunrise's <strong>$1.5M Sitecore</strong> implementation).</p>
-                </div>
-
-                <div class="insight-box">
-                    <h3>Key Question</h3>
-                    <p><strong>Should American House rebrand/modernize to future-proof the business and address geographic perception gaps?</strong></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 3: Current State -->
-        <div class="slide">
-            <h1 class="slide-title">American House: Current State</h1>
-            <p class="slide-subtitle">Geographic footprint and pricing analysis</p>
-            <div class="content">
-                <h2 class="section-title">Geographic Footprint</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>State</th>
-                            <th>Market Presence</th>
-                            <th>Avg. Monthly Cost</th>
-                            <th>Key Markets</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="highlight-row">
-                            <td>Michigan</td>
-                            <td>Largest footprint (45+ years)</td>
-                            <td>$6,040</td>
-                            <td>Detroit metro, Grand Rapids, Lansing</td>
-                        </tr>
-                        <tr>
-                            <td>Florida</td>
-                            <td>Premium expansion market</td>
-                            <td>$4,475</td>
-                            <td>Sarasota, Fort Myers, Tampa</td>
-                        </tr>
-                        <tr>
-                            <td>Tennessee</td>
-                            <td>Mid-market presence</td>
-                            <td>~$5,900</td>
-                            <td>Nashville, Knoxville, Chattanooga</td>
-                        </tr>
-                        <tr>
-                            <td>Missouri</td>
-                            <td>Regional presence</td>
-                            <td>~$5,900</td>
-                            <td>St. Louis, Kansas City</td>
-                        </tr>
-                        <tr>
-                            <td>Illinois</td>
-                            <td>Chicago metro expansion</td>
-                            <td>~$6,200</td>
-                            <td>Chicago suburbs</td>
-                        </tr>
-                        <tr>
-                            <td>New Hampshire</td>
-                            <td>Northeast presence</td>
-                            <td>~$6,500</td>
-                            <td>Southern NH</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="warning-box">
-                    <h3>🚨 Key Insight: Pricing Paradox</h3>
-                    <p><strong>Michigan pricing is 27% higher than Florida</strong> ($6,040 vs. $4,475/month), despite the hypothesis that Florida is the "premium" market. This pricing tension raises questions about market positioning and brand perception consistency.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 4: Competitive Landscape -->
-        <div class="slide">
-            <h1 class="slide-title">Competitive Landscape</h1>
-            <p class="slide-subtitle">Industry benchmarks and positioning</p>
-            <div class="content">
-                <h2 class="section-title">Industry Benchmarks</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Provider</th>
-                            <th>Communities</th>
-                            <th>Reviews</th>
-                            <th>Avg. Rating</th>
-                            <th>Awards/Recognition</th>
-                            <th>Positioning</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="highlight-row">
-                            <td>American House</td>
-                            <td>61</td>
-                            <td>3,226</td>
-                            <td>4.3</td>
-                            <td>Top 1% care providers</td>
-                            <td>Mid-market, regional</td>
-                        </tr>
-                        <tr>
-                            <td>Sunrise</td>
-                            <td>234</td>
-                            <td>12,876</td>
-                            <td>4.3</td>
-                            <td>148 US News Best (71%)</td>
-                            <td>Premium, national</td>
-                        </tr>
-                        <tr>
-                            <td>Vi Living</td>
-                            <td>10</td>
-                            <td>64</td>
-                            <td>5.0</td>
-                            <td>Premium CCRC/Life Plan</td>
-                            <td>Ultra-premium, boutique</td>
-                        </tr>
-                        <tr>
-                            <td>Mather LifeWays</td>
-                            <td>3</td>
-                            <td>~50</td>
-                            <td>4.5+</td>
-                            <td>5-Star U.S. News rankings</td>
-                            <td>Premium, boutique luxury</td>
-                        </tr>
-                        <tr>
-                            <td>Kensington</td>
-                            <td>8</td>
-                            <td>~100</td>
-                            <td>4.5</td>
-                            <td>8.5-9.4/10 APFM scores</td>
-                            <td>Mid-to-premium, regional</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3 class="subsection-title">Key Competitive Insights</h3>
-                <ul>
-                    <li><strong>Scale & Positioning:</strong> Sunrise (234 communities) has national scale and premium positioning with same 4.3 rating as American House</li>
-                    <li><strong>Review Volume Gap:</strong> Sunrise has 4x more reviews — awareness/reach advantage</li>
-                    <li><strong>Boutique Luxury:</strong> Vi and Mather set premium perception ceiling with 5.0 ratings</li>
-                    <li><strong>Opportunity:</strong> American House quality (4.3 stars) justifies premium positioning but brand perception lags</li>
-                </ul>
-
-                <div class="insight-box">
-                    <h3>Competitive Positioning Question</h3>
-                    <p>American House quality ratings <strong>match premium competitors</strong> (4.3 stars = Sunrise), but is perceived as mid-market or "blue-collar affordable." This perception-reality gap is the core brand challenge.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 5: Executive Summary -->
-        <div class="slide">
-            <h1 class="slide-title">Executive Summary</h1>
-            <p class="slide-subtitle">The challenge and key questions</p>
-            <div class="content">
-                <div class="highlight-box">
-                    <h2 class="section-title">The Challenge</h2>
-                    <p>American House is viewed as <strong>"blue-collar affordable"</strong> in some markets (Michigan) while operating <strong>premium properties</strong> in others (Florida, Somerset, Lakeshore). This creates market confusion and pricing tensions. The brand needs clarity on whether to modernize, how to position across diverse markets, and whether premium properties should remain under the American House umbrella.</p>
-                </div>
-
-                <h2 class="section-title">What We'll Answer</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h4>Brand Resonance</h4>
-                        <p>Does the name resonate? Do the visuals represent where we're going?</p>
-                    </div>
-                    <div class="card">
-                        <h4>Geographic Consistency</h4>
-                        <p>Does American House mean the same thing in Michigan, Florida, Tennessee?</p>
-                    </div>
-                    <div class="card">
-                        <h4>Sub-Branding</h4>
-                        <p>Should Somerset, Lakeshore, Bloomfield be sub-branded?</p>
-                    </div>
-                    <div class="card">
-                        <h4>Capital Impact</h4>
-                        <p>How does brand perception impact capital decisions?</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 6: Michigan Pricing Paradox -->
-        <div class="slide">
-            <h1 class="slide-title">The Michigan Pricing Paradox</h1>
-            <p class="slide-subtitle">Michigan pricing is 27% higher than Florida, contradicting the "premium Florida" hypothesis</p>
-            <div class="content">
-                <h2 class="section-title">State-by-State Pricing Context</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>State</th>
-                            <th>Avg. Monthly Cost</th>
-                            <th>vs. National Avg.</th>
-                            <th>Market Dynamics</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>National Average</td>
-                            <td>$5,900</td>
-                            <td>—</td>
-                            <td>Baseline (2024-2025)</td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td>Michigan</td>
-                            <td>$6,040</td>
-                            <td>+2%</td>
-                            <td>Above national avg, 12% YoY growth</td>
-                        </tr>
-                        <tr>
-                            <td>Florida</td>
-                            <td>$4,475</td>
-                            <td>−24%</td>
-                            <td>Below national avg, high competition</td>
-                        </tr>
-                        <tr>
-                            <td>Tennessee</td>
-                            <td>~$5,900</td>
-                            <td>±0%</td>
-                            <td>At national average</td>
-                        </tr>
-                        <tr>
-                            <td>Illinois</td>
-                            <td>~$6,200</td>
-                            <td>+5%</td>
-                            <td>Chicago metro premium</td>
-                        </tr>
-                        <tr>
-                            <td>New Hampshire</td>
-                            <td>~$6,500</td>
-                            <td>+10%</td>
-                            <td>Northeast cost of living</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3 class="subsection-title">Why This Matters</h3>
-
-                <div class="warning-box">
-                    <h4>Brand Perception vs. Pricing Misalignment</h4>
-                    <p>If American House is perceived as "blue-collar affordable" in Michigan but charges <strong>$6,040/month (above national average)</strong>, there's a value perception gap that could harm consideration and occupancy.</p>
-                </div>
-
-                <div class="insight-box">
-                    <h4>Florida "Premium" Positioning Question</h4>
-                    <p>Florida pricing is <strong>24% below national average</strong>. If the brand positions as "premium" in Florida, does the pricing support that claim? Or is there room to increase pricing with stronger brand perception?</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 7: Customer Satisfaction -->
-        <div class="slide">
-            <h1 class="slide-title">Customer Satisfaction</h1>
-            <p class="slide-subtitle">Industry benchmarks and competitive comparison</p>
-            <div class="content">
-                <h2 class="section-title">Net Promoter Score (NPS) Context</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Benchmark</th>
-                            <th>NPS Score</th>
-                            <th>Interpretation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Global Average (2025)</td>
-                            <td>+32</td>
-                            <td>Baseline across all industries</td>
-                        </tr>
-                        <tr>
-                            <td>"Good" NPS</td>
-                            <td>0 to +30</td>
-                            <td>Acceptable performance</td>
-                        </tr>
-                        <tr>
-                            <td>"Very Good" NPS</td>
-                            <td>+60 or higher</td>
-                            <td>Excellent performance</td>
-                        </tr>
-                        <tr>
-                            <td>Healthcare/Senior Living</td>
-                            <td>Typically +20 to +40</td>
-                            <td>Lower than consumer goods/services</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h2 class="section-title">American House vs. Competitors: Review Ratings</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Provider</th>
-                            <th>APFM Rating</th>
-                            <th>Review Volume</th>
-                            <th>Employee Rating</th>
-                            <th>Insight</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Vi Living</td>
-                            <td>4.5</td>
-                            <td>12,478</td>
-                            <td>N/A</td>
-                            <td>Highest resident satisfaction</td>
-                        </tr>
-                        <tr>
-                            <td>Mather LifeWays</td>
-                            <td>4.4</td>
-                            <td>8,500</td>
-                            <td>N/A</td>
-                            <td>Strong ratings, BBB concerns</td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td>American House</td>
-                            <td>4.3</td>
-                            <td>3,226</td>
-                            <td>2.6</td>
-                            <td>Strong resident, low employee sat</td>
-                        </tr>
-                        <tr>
-                            <td>Sunrise</td>
-                            <td>4.3</td>
-                            <td>12,876</td>
-                            <td>3.8</td>
-                            <td>Tied with AH on resident ratings</td>
-                        </tr>
-                        <tr>
-                            <td>Kensington</td>
-                            <td>3.9</td>
-                            <td>29,080</td>
-                            <td>3.4</td>
-                            <td>Lower ratings, highest volume</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
-                    <div class="success-box">
-                        <h4>American House Strengths</h4>
-                        <ul>
-                            <li>4.3 stars matches Sunrise (premium national brand)</li>
-                            <li>Top 1% of care providers nationwide</li>
-                            <li>Consistent quality across communities</li>
-                            <li>Strong resident/family satisfaction</li>
-                        </ul>
-                    </div>
-
-                    <div class="warning-box">
-                        <h4>Areas to Investigate</h4>
-                        <ul>
-                            <li>Employee satisfaction (2.6/5) is concerning</li>
-                            <li>Review volume 4x lower than Sunrise</li>
-                            <li>0.2 star gap vs. Vi Living</li>
-                            <li>Does "Top 1%" translate to perception?</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 8: Brand Perception -->
-        <div class="slide">
-            <h1 class="slide-title">Brand Perception</h1>
-            <p class="slide-subtitle">Multi-platform overview and brand health</p>
-            <div class="content">
-                <h2 class="section-title">Platform-by-Platform Ratings</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Provider</th>
-                            <th>Caring.com</th>
-                            <th>A Place for Mom</th>
-                            <th>Google Reviews</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Sunrise</td>
-                            <td>4.2/5 (45 reviews)</td>
-                            <td>4.3/5 (13,013 reviews)</td>
-                            <td>4.3/5 (45 reviews)</td>
-                        </tr>
-                        <tr>
-                            <td>Kensington</td>
-                            <td>5.0/5 (2 reviews)</td>
-                            <td>4.8/5 (71 reviews)</td>
-                            <td>4.6/5 (137 reviews)</td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td>American House</td>
-                            <td>4.5/5 (72 reviews)</td>
-                            <td>4.3/5 (3,226 reviews)</td>
-                            <td>4.5/5 (88 reviews)</td>
-                        </tr>
-                        <tr>
-                            <td>Mather LifeWays</td>
-                            <td>5.0/5 (3 reviews)</td>
-                            <td>4.3/5 (19 reviews)</td>
-                            <td>4.5/5 (56 reviews)</td>
-                        </tr>
-                        <tr>
-                            <td>Vi Living</td>
-                            <td>4.0/5 (33 reviews)</td>
-                            <td>3.6/5 (64 reviews)</td>
-                            <td>3.8/5 (90 reviews)</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3 class="subsection-title">Overall Brand Health Score Rankings</h3>
-                <div class="data-grid">
-                    <div class="data-point">
-                        <span class="data-value">#1</span>
-                        <span class="data-label">Sunrise (90/100)</span>
-                    </div>
-                    <div class="data-point">
-                        <span class="data-value">#2</span>
-                        <span class="data-label">Kensington (89/100)</span>
-                    </div>
-                    <div class="data-point" style="border-color: #ffed4e; border-width: 3px;">
-                        <span class="data-value">#3</span>
-                        <span class="data-label">American House (88/100)</span>
-                    </div>
-                    <div class="data-point">
-                        <span class="data-value">#4</span>
-                        <span class="data-label">Mather (80/100)</span>
-                    </div>
-                    <div class="data-point">
-                        <span class="data-value">#5</span>
-                        <span class="data-label">Vi Living (60/100)</span>
-                    </div>
-                </div>
-
-                <div class="card card-highlight">
-                    <h4>American House: Strong #3 Overall (88/100)</h4>
-                    <p><strong>Competitive position:</strong> American House ranks #3 of 5 providers, trailing only Sunrise (90) and Kensington (89). With 3,226 APFM reviews and consistent 4.3-4.5 ratings across platforms, American House demonstrates strong brand health at scale.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 9: Testimonial Analysis -->
-        <div class="slide">
-            <h1 class="slide-title">Testimonial Analysis</h1>
-            <p class="slide-subtitle">Competitive benchmarking across 125 reviews</p>
-            <div class="content">
-                <h2 class="section-title">Sentiment Scores by Provider</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Provider</th>
-                            <th>Reviews</th>
-                            <th>Sentiment</th>
-                            <th>Positive</th>
-                            <th>Neutral</th>
-                            <th>Negative</th>
-                            <th>Top Themes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Kensington</td>
-                            <td>20</td>
-                            <td>98</td>
-                            <td>100%</td>
-                            <td>0%</td>
-                            <td>0%</td>
-                            <td>Gold standard care, Restaurant food</td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td>American House</td>
-                            <td>40</td>
-                            <td>96</td>
-                            <td>97.5%</td>
-                            <td>2.5%</td>
-                            <td>0%</td>
-                            <td>Staff compassion, Family atmosphere</td>
-                        </tr>
-                        <tr>
-                            <td>Sunrise</td>
-                            <td>40</td>
-                            <td>94</td>
-                            <td>95%</td>
-                            <td>2.5%</td>
-                            <td>2.5%</td>
-                            <td>Beautiful facilities, Professional staff</td>
-                        </tr>
-                        <tr>
-                            <td>Vi Living</td>
-                            <td>20</td>
-                            <td>88</td>
-                            <td>90%</td>
-                            <td>5%</td>
-                            <td>5%</td>
-                            <td>CCRC continuum, Premium lifestyle</td>
-                        </tr>
-                        <tr>
-                            <td>Mather</td>
-                            <td>5</td>
-                            <td>85</td>
-                            <td>85%</td>
-                            <td>10%</td>
-                            <td>5%</td>
-                            <td>Research programs, Cultural access</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h2 class="section-title">Brand Perception Indicators from Testimonials</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Indicator</th>
-                            <th>American House</th>
-                            <th>Vi Living</th>
-                            <th>Mather</th>
-                            <th>Sunrise</th>
-                            <th>Insight</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Value Perception</td>
-                            <td>42% "good value"</td>
-                            <td>15% "worth it"</td>
-                            <td>22% "value"</td>
-                            <td>12% "good value"</td>
-                            <td>AH leads on value</td>
-                        </tr>
-                        <tr>
-                            <td>Quality Mentions</td>
-                            <td>89% "clean"</td>
-                            <td>85% "quality"</td>
-                            <td>75% "quality"</td>
-                            <td>92% "beautiful"</td>
-                            <td>Sunrise edges on aesthetics</td>
-                        </tr>
-                        <tr>
-                            <td>Modernization</td>
-                            <td>12% "modern"</td>
-                            <td>45% "modern"</td>
-                            <td>35% "updated"</td>
-                            <td>58% "beautiful"</td>
-                            <td>Gap: AH uses "clean" not "modern"</td>
-                        </tr>
-                        <tr>
-                            <td>Staff Praise</td>
-                            <td>78% praise staff</td>
-                            <td>68% mention</td>
-                            <td>60% mention</td>
-                            <td>72% praise</td>
-                            <td>AH highest staff praise</td>
-                        </tr>
-                        <tr>
-                            <td>Emotional Tone</td>
-                            <td>65% "family"</td>
-                            <td>35% "warm"</td>
-                            <td>40% "caring"</td>
-                            <td>45% "compassionate"</td>
-                            <td>AH dominates family atmosphere</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
-                    <div class="success-box">
-                        <h4>American House Strengths</h4>
-                        <ul>
-                            <li>Exceptional staff ratings (9.6/10)</li>
-                            <li>"Family atmosphere" - 3x mention rate vs. competitors</li>
-                            <li>Value leadership - 42% praise "good value"</li>
-                            <li>Long-tenured staff (5-20 years)</li>
-                        </ul>
-                    </div>
-
-                    <div class="warning-box">
-                        <h4>Areas for Improvement</h4>
-                        <ul>
-                            <li>Aesthetics language: "Clean" vs. "beautiful/luxury"</li>
-                            <li>Modernization perception: 12% vs. 58% for Sunrise</li>
-                            <li>Minor facility issues mentioned</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 10: Key Insights -->
-        <div class="slide">
-            <h1 class="slide-title">Key Insights</h1>
-            <p class="slide-subtitle">Competitive advantages and positioning opportunities</p>
-            <div class="content">
-                <h2 class="section-title">American House Competitive Advantages</h2>
-                <ul>
-                    <li><strong>Authenticity & family atmosphere:</strong> "Feel like family" mentioned 3x more than competitors</li>
-                    <li><strong>Value leadership:</strong> 42% praise "good value" vs. 12% for Sunrise (cost complaints)</li>
-                    <li><strong>Staff excellence:</strong> 9.6/10 staff score, long tenure (5-20 years), highest mention rate (78%)</li>
-                    <li><strong>Crisis management:</strong> Fire incident turned positive—demonstrates reliable operations</li>
-                </ul>
-
-                <h2 class="section-title">Competitive Positioning Opportunities</h2>
-
-                <div class="highlight-box">
-                    <h4>Where Competitors Are Weak (Exploit in Marketing)</h4>
-                    <ul>
-                        <li><strong>Sunrise:</strong> À la carte pricing creates bill shock ($37/hr companion care)</li>
-                        <li><strong>Vi Living:</strong> "Those who can afford it" exclusivity barrier</li>
-                        <li><strong>Kensington:</strong> $14K/month pricing limits accessibility</li>
-                        <li><strong>Industry-wide:</strong> Negative NPS scores (-54 to -78) vs. AH's 97.5% positive sentiment</li>
-                    </ul>
-                </div>
-
-                <div class="card card-highlight">
-                    <h4>Differentiation Angle American House Can Own</h4>
-                    <p style="font-size: 1.2rem; margin-bottom: 15px;"><strong>"Premium Care Without the Premium Price Tag"</strong></p>
-                    <p>Position as the accessible premium alternative—matching quality of Sunrise/Kensington without extreme pricing. Emphasize:</p>
-                    <ul style="margin-top: 15px;">
-                        <li>Family atmosphere vs. corporate feel</li>
-                        <li>Transparent pricing vs. bill shock</li>
-                        <li>Long-tenured staff who "love their jobs"</li>
-                        <li>97.5% positive sentiment vs. industry-wide dissatisfaction</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 11: NPS Crisis -->
-        <div class="slide">
-            <h1 class="slide-title">Industry NPS Crisis</h1>
-            <p class="slide-subtitle">American House's massive competitive advantage</p>
-            <div class="content">
-                <h2 class="section-title">🔴 Critical Finding: Industry NPS Crisis</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Provider</th>
-                            <th>NPS Score</th>
-                            <th>Promoters</th>
-                            <th>Detractors</th>
-                            <th>Sample Size</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="background: rgba(220, 53, 69, 0.2);">
-                            <td>Atria Senior Living</td>
-                            <td style="color: #ff6b6b; font-weight: bold;">-78</td>
-                            <td>8%</td>
-                            <td>86%</td>
-                            <td>Industry study*</td>
-                        </tr>
-                        <tr style="background: rgba(220, 53, 69, 0.2);">
-                            <td>Sunrise Senior Living</td>
-                            <td style="color: #ff6b6b; font-weight: bold;">-54</td>
-                            <td>18%</td>
-                            <td>72%</td>
-                            <td>Industry study*</td>
-                        </tr>
-                        <tr style="background: rgba(220, 53, 69, 0.2);">
-                            <td>Brookdale Senior Living</td>
-                            <td style="color: #ff6b6b; font-weight: bold;">-52</td>
-                            <td>21%</td>
-                            <td>73%</td>
-                            <td>Industry study*</td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td>American House (est.)</td>
-                            <td style="font-size: 1.3rem;">~+75</td>
-                            <td>97.5%</td>
-                            <td>0%</td>
-                            <td>n=40 testimonials</td>
-                        </tr>
-                        <tr style="background: rgba(25, 135, 84, 0.15);">
-                            <td>Industry Best (Silverado)</td>
-                            <td style="color: #75fb4c; font-weight: bold;">+63</td>
-                            <td>—</td>
-                            <td>—</td>
-                            <td>Industry study*</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p style="margin-top: 1rem; font-size: 0.85rem; color: #808080;"><strong>*Industry study:</strong> NPS scores from published senior living industry research (Perplexity Sonar Pro aggregation, 2024-2025 data). Sample sizes not disclosed in source material.</p>
-                <p style="font-size: 0.85rem; color: #808080;"><strong>American House estimate:</strong> Based on FTF testimonial analysis of 40 reviews (97.5% positive, 2.5% neutral, 0% negative). Estimated NPS assumes promoters ≈ positive sentiment.</p>
-
-                <div class="success-box" style="margin-top: 2rem;">
-                    <h4>Massive Competitive Advantage</h4>
-                    <p>American House's <strong>97.5% positive sentiment</strong> from testimonial analysis suggests it SIGNIFICANTLY outperforms major competitors on loyalty. While competitors have <strong>72-86% detractor rates</strong>, American House has <strong>0% negative reviews</strong> in our sample. This is a transformational competitive advantage that must be highlighted in all marketing.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 12: Thank You -->
-        <div class="slide">
-            <div class="logo">
-                <div class="logo-icon"></div>
-                FROM THE FUTURE
-            </div>
-            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                <h1 style="font-size: 5rem; color: #ffed4e; margin-bottom: 40px;">Thank You</h1>
-                <p style="font-size: 1.3rem; color: #b0b0b0;">Questions?</p>
-            </div>
-        </div>
+<!-- Research Scope -->
+<div class="section">
+  <h1 class="slide-title">Research Scope</h1>
+  <div class="card-grid">
+    <div class="card">
+      <h4>States</h4>
+      <p>Michigan, Missouri, Florida, Tennessee, Illinois, New Hampshire</p>
     </div>
-
-    <div class="slide-counter">
-        <span id="current-slide">1</span> / <span id="total-slides">12</span>
+    <div class="card">
+      <h4>Audiences</h4>
+      <p>Prospective residents/families, Current residents/families, Investors, Leadership</p>
     </div>
-
-    <div class="nav-controls">
-        <button class="nav-btn" id="prev-btn">← Previous</button>
-        <button class="nav-btn" id="next-btn">Next →</button>
+    <div class="card">
+      <h4>Methods</h4>
+      <p>Testimonial analysis, Surveys, 1-1 Interviews, Digital footprint review</p>
     </div>
+    <div class="card">
+      <h4>Competitors</h4>
+      <p>Sunrise, Vi Living, Mather LifeWays, Kensington Senior Living</p>
+    </div>
+  </div>
+  
+  <div class="card card-highlight">
+    <h4>Preliminary Research Complete</h4>
+    <p>We've already analyzed <strong>125 testimonials</strong> across all providers from multiple platforms (Caring.com, A Place for Mom, Google, Facebook), plus conducted a competitive website/CMS audit revealing digital investment levels (e.g., Sunrise's <strong>$1.5M Sitecore</strong> implementation).</p>
+  </div>
+  
+  <div class="card card-insight">
+    <h4>Key Question</h4>
+    <p><strong>Should American House rebrand/modernize to future-proof the business and address geographic perception gaps?</strong></p>
+  </div>
+</div>
 
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const currentSlideEl = document.getElementById('current-slide');
+<!-- American House Current State -->
+<div class="section">
+  <h1 class="slide-title">American House: Current State</h1>
+  <p class="slide-subtitle">Geographic footprint and pricing analysis</p>
+  
+  <h2 class="section-title">Geographic Footprint</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>State</th>
+        <th>Market Presence</th>
+        <th>Avg. Monthly Cost</th>
+        <th>Key Markets</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-row">
+        <td>Michigan</td>
+        <td>Largest footprint (45+ years)</td>
+        <td>$6,040</td>
+        <td>Detroit metro, Grand Rapids, Lansing</td>
+      </tr>
+      <tr>
+        <td>Florida</td>
+        <td>Premium expansion market</td>
+        <td>$4,475</td>
+        <td>Sarasota, Fort Myers, Tampa</td>
+      </tr>
+      <tr>
+        <td>Tennessee</td>
+        <td>Mid-market presence</td>
+        <td>~$5,900</td>
+        <td>Nashville, Knoxville, Chattanooga</td>
+      </tr>
+      <tr>
+        <td>Missouri</td>
+        <td>Regional presence</td>
+        <td>~$5,900</td>
+        <td>St. Louis, Kansas City</td>
+      </tr>
+      <tr>
+        <td>Illinois</td>
+        <td>Chicago metro expansion</td>
+        <td>~$6,200</td>
+        <td>Chicago suburbs</td>
+      </tr>
+      <tr>
+        <td>New Hampshire</td>
+        <td>Northeast presence</td>
+        <td>~$6,500</td>
+        <td>Southern NH</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="card card-warning">
+    <h4>🚨 Key Insight: Pricing Paradox</h4>
+    <p><strong>Michigan pricing is 27% higher than Florida</strong> ($6,040 vs. $4,475/month), despite the hypothesis that Florida is the "premium" market. This pricing tension raises questions about market positioning and brand perception consistency.</p>
+  </div>
+</div>
 
-        document.getElementById('total-slides').textContent = totalSlides;
+<!-- Competitive Landscape -->
+<div class="section">
+  <h1 class="slide-title">Competitive Landscape</h1>
+  <p class="slide-subtitle">Industry benchmarks and positioning</p>
+  
+  <h2 class="section-title">Industry Benchmarks</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>Communities</th>
+        <th>Reviews</th>
+        <th>Avg. Rating</th>
+        <th>Awards/Recognition</th>
+        <th>Positioning</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-row">
+        <td>American House</td>
+        <td>61</td>
+        <td>3,226</td>
+        <td>4.3</td>
+        <td>Top 1% care providers</td>
+        <td>Mid-market, regional</td>
+      </tr>
+      <tr>
+        <td>Sunrise</td>
+        <td>234</td>
+        <td>12,876</td>
+        <td>4.3</td>
+        <td>148 US News Best (71%)</td>
+        <td>Premium, national</td>
+      </tr>
+      <tr>
+        <td>Vi Living</td>
+        <td>10</td>
+        <td>64</td>
+        <td>5.0</td>
+        <td>Premium CCRC/Life Plan</td>
+        <td>Ultra-premium, boutique</td>
+      </tr>
+      <tr>
+        <td>Mather LifeWays</td>
+        <td>3</td>
+        <td>~50</td>
+        <td>4.5+</td>
+        <td>5-Star U.S. News rankings</td>
+        <td>Premium, boutique luxury</td>
+      </tr>
+      <tr>
+        <td>Kensington</td>
+        <td>8</td>
+        <td>~100</td>
+        <td>4.5</td>
+        <td>8.5-9.4/10 APFM scores</td>
+        <td>Mid-to-premium, regional</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3 class="subsection-title">Key Competitive Insights</h3>
+  <ul>
+    <li><strong>Scale & Positioning:</strong> Sunrise (234 communities) has national scale and premium positioning with same 4.3 rating as American House</li>
+    <li><strong>Review Volume Gap:</strong> Sunrise has 4x more reviews — awareness/reach advantage</li>
+    <li><strong>Boutique Luxury:</strong> Vi and Mather set premium perception ceiling with 5.0 ratings</li>
+    <li><strong>Opportunity:</strong> American House quality (4.3 stars) justifies premium positioning but brand perception lags</li>
+  </ul>
+  
+  <div class="card card-insight">
+    <h4>Competitive Positioning Question</h4>
+    <p>American House quality ratings <strong>match premium competitors</strong> (4.3 stars = Sunrise), but is perceived as mid-market or "blue-collar affordable." This perception-reality gap is the core brand challenge.</p>
+  </div>
+</div>
 
-        function showSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (n + totalSlides) % totalSlides;
-            slides[currentSlide].classList.add('active');
-            currentSlideEl.textContent = currentSlide + 1;
-            
-            // Scroll to top of new slide
-            slides[currentSlide].scrollTop = 0;
-            
-            prevBtn.disabled = currentSlide === 0;
-            nextBtn.disabled = currentSlide === totalSlides - 1;
-        }
+<!-- Executive Summary -->
+<div class="section">
+  <h1 class="slide-title">Executive Summary</h1>
+  <p class="slide-subtitle">The challenge and key questions</p>
+  
+  <div class="card card-highlight">
+    <h4>The Challenge</h4>
+    <p>American House is viewed as <strong>"blue-collar affordable"</strong> in some markets (Michigan) while operating <strong>premium properties</strong> in others (Florida, Somerset, Lakeshore). This creates market confusion and pricing tensions. The brand needs clarity on whether to modernize, how to position across diverse markets, and whether premium properties should remain under the American House umbrella.</p>
+  </div>
+  
+  <h2 class="section-title">What We'll Answer</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Brand Resonance</h4>
+      <p>Does the name resonate? Do the visuals represent where we're going?</p>
+    </div>
+    <div class="card">
+      <h4>Geographic Consistency</h4>
+      <p>Does American House mean the same thing in Michigan, Florida, Tennessee?</p>
+    </div>
+    <div class="card">
+      <h4>Sub-Branding</h4>
+      <p>Should Somerset, Lakeshore, Bloomfield be sub-branded?</p>
+    </div>
+    <div class="card">
+      <h4>Capital Impact</h4>
+      <p>How does brand perception impact capital decisions?</p>
+    </div>
+  </div>
+</div>
 
-        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
-        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+<!-- Michigan Pricing Paradox -->
+<div class="section">
+  <h1 class="slide-title">The Michigan Pricing Paradox</h1>
+  <p class="slide-subtitle">Michigan pricing is 27% higher than Florida, contradicting the "premium Florida" hypothesis</p>
+  
+  <h2 class="section-title">State-by-State Pricing Context</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>State</th>
+        <th>Avg. Monthly Cost</th>
+        <th>vs. National Avg.</th>
+        <th>Market Dynamics</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>National Average</td>
+        <td>$5,900</td>
+        <td>—</td>
+        <td>Baseline (2024-2025)</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>Michigan</td>
+        <td>$6,040</td>
+        <td>+2%</td>
+        <td>Above national avg, 12% YoY growth</td>
+      </tr>
+      <tr>
+        <td>Florida</td>
+        <td>$4,475</td>
+        <td>−24%</td>
+        <td>Below national avg, high competition</td>
+      </tr>
+      <tr>
+        <td>Tennessee</td>
+        <td>~$5,900</td>
+        <td>±0%</td>
+        <td>At national average</td>
+      </tr>
+      <tr>
+        <td>Illinois</td>
+        <td>~$6,200</td>
+        <td>+5%</td>
+        <td>Chicago metro premium</td>
+      </tr>
+      <tr>
+        <td>New Hampshire</td>
+        <td>~$6,500</td>
+        <td>+10%</td>
+        <td>Northeast cost of living</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3 class="subsection-title">Why This Matters</h3>
+  <div class="two-col">
+    <div class="card card-warning">
+      <h4>Brand Perception vs. Pricing Misalignment</h4>
+      <p>If American House is perceived as "blue-collar affordable" in Michigan but charges <strong>$6,040/month (above national average)</strong>, there's a value perception gap that could harm consideration and occupancy.</p>
+    </div>
+    <div class="card card-insight">
+      <h4>Florida "Premium" Positioning Question</h4>
+      <p>Florida pricing is <strong>24% below national average</strong>. If the brand positions as "premium" in Florida, does the pricing support that claim? Or is there room to increase pricing with stronger brand perception?</p>
+    </div>
+  </div>
+</div>
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft' && currentSlide > 0) showSlide(currentSlide - 1);
-            if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) showSlide(currentSlide + 1);
-        });
+<!-- Customer Satisfaction -->
+<div class="section">
+  <h1 class="slide-title">Customer Satisfaction</h1>
+  <p class="slide-subtitle">Industry benchmarks and competitive comparison</p>
+  
+  <h2 class="section-title">Net Promoter Score (NPS) Context</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Benchmark</th>
+        <th>NPS Score</th>
+        <th>Interpretation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Global Average (2025)</td>
+        <td>+32</td>
+        <td>Baseline across all industries</td>
+      </tr>
+      <tr>
+        <td>"Good" NPS</td>
+        <td>0 to +30</td>
+        <td>Acceptable performance</td>
+      </tr>
+      <tr>
+        <td>"Very Good" NPS</td>
+        <td>+60 or higher</td>
+        <td>Excellent performance</td>
+      </tr>
+      <tr>
+        <td>Healthcare/Senior Living</td>
+        <td>Typically +20 to +40</td>
+        <td>Lower than consumer goods/services</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h2 class="section-title">American House vs. Competitors: Review Ratings</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>APFM Rating</th>
+        <th>Review Volume</th>
+        <th>Employee Rating</th>
+        <th>Insight</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Vi Living</td>
+        <td>4.5</td>
+        <td>12,478</td>
+        <td>N/A</td>
+        <td>Highest resident satisfaction</td>
+      </tr>
+      <tr>
+        <td>Mather LifeWays</td>
+        <td>4.4</td>
+        <td>8,500</td>
+        <td>N/A</td>
+        <td>Strong ratings, BBB concerns</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>American House</td>
+        <td>4.3</td>
+        <td>3,226</td>
+        <td>2.6</td>
+        <td>Strong resident, low employee sat</td>
+      </tr>
+      <tr>
+        <td>Sunrise</td>
+        <td>4.3</td>
+        <td>12,876</td>
+        <td>3.8</td>
+        <td>Tied with AH on resident ratings</td>
+      </tr>
+      <tr>
+        <td>Kensington</td>
+        <td>3.9</td>
+        <td>29,080</td>
+        <td>3.4</td>
+        <td>Lower ratings, highest volume</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="two-col">
+    <div class="card card-success">
+      <h4>American House Strengths</h4>
+      <ul>
+        <li>4.3 stars matches Sunrise (premium national brand)</li>
+        <li>Top 1% of care providers nationwide</li>
+        <li>Consistent quality across communities</li>
+        <li>Strong resident/family satisfaction</li>
+      </ul>
+    </div>
+    <div class="card card-warning">
+      <h4>Areas to Investigate</h4>
+      <ul>
+        <li>Employee satisfaction (2.6/5) is concerning</li>
+        <li>Review volume 4x lower than Sunrise</li>
+        <li>0.2 star gap vs. Vi Living</li>
+        <li>Does "Top 1%" translate to perception?</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-        prevBtn.disabled = true;
-    </script>
+<!-- Brand Perception -->
+<div class="section">
+  <h1 class="slide-title">Brand Perception</h1>
+  <p class="slide-subtitle">Multi-platform overview and brand health</p>
+  
+  <h2 class="section-title">Platform-by-Platform Ratings</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>Caring.com</th>
+        <th>A Place for Mom</th>
+        <th>Google Reviews</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sunrise</td>
+        <td>4.2/5 (45 reviews)</td>
+        <td>4.3/5 (13,013 reviews)</td>
+        <td>4.3/5 (45 reviews)</td>
+      </tr>
+      <tr>
+        <td>Kensington</td>
+        <td>5.0/5 (2 reviews)</td>
+        <td>4.8/5 (71 reviews)</td>
+        <td>4.6/5 (137 reviews)</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>American House</td>
+        <td>4.5/5 (72 reviews)</td>
+        <td>4.3/5 (3,226 reviews)</td>
+        <td>4.5/5 (88 reviews)</td>
+      </tr>
+      <tr>
+        <td>Mather LifeWays</td>
+        <td>5.0/5 (3 reviews)</td>
+        <td>4.3/5 (19 reviews)</td>
+        <td>4.5/5 (56 reviews)</td>
+      </tr>
+      <tr>
+        <td>Vi Living</td>
+        <td>4.0/5 (33 reviews)</td>
+        <td>3.6/5 (64 reviews)</td>
+        <td>3.8/5 (90 reviews)</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3 class="subsection-title">Overall Brand Health Score Rankings</h3>
+  <div class="data-grid">
+    <div class="data-point">
+      <span class="data-value">#1</span>
+      <span class="data-label">Sunrise (90/100)</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">#2</span>
+      <span class="data-label">Kensington (89/100)</span>
+    </div>
+    <div class="data-point highlighted">
+      <span class="data-value">#3</span>
+      <span class="data-label"><strong>American House (88/100)</strong></span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">#4</span>
+      <span class="data-label">Mather (80/100)</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">#5</span>
+      <span class="data-label">Vi Living (60/100)</span>
+    </div>
+  </div>
+  
+  <div class="card card-highlight">
+    <h4>American House: Strong #3 Overall (88/100)</h4>
+    <p><strong>Competitive position:</strong> American House ranks #3 of 5 providers, trailing only Sunrise (90) and Kensington (89). With 3,226 APFM reviews and consistent 4.3-4.5 ratings across platforms, American House demonstrates strong brand health at scale.</p>
+    <p style="margin-top: 12px;"><strong>Platform consistency:</strong> Reliable 4.3-4.5 rating consistency across Caring.com, APFM, and Google Reviews indicates coherent brand delivery across locations—no major quality gaps.</p>
+  </div>
+  
+  <div class="card card-warning">
+    <h4>Vi Living: Significantly Weaker Than Expected (60/100)</h4>
+    <p>Corrected data reveals major gap: 3.6/5 rating with only 64 APFM reviews—dramatically lower than Sunrise (4.3/5, 13,013) or American House (4.3/5, 3,226). <strong>Strategic implication:</strong> American House's <strong>50x more reviews</strong> provides massive trust signal edge in digital discovery.</p>
+  </div>
+</div>
+
+<!-- Digital Investment -->
+<div class="section">
+  <h1 class="slide-title">Digital Investment</h1>
+  <p class="slide-subtitle">Website platforms, technology audit, and competitive capabilities</p>
+  
+  <h2 class="section-title">Website Platform & Investment Analysis</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>CMS Platform</th>
+        <th>Est. Investment</th>
+        <th>Key Features/Capabilities</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sunrise</td>
+        <td>Sitecore</td>
+        <td>~$1.5M</td>
+        <td>Enterprise CMS, personalization, advanced search, virtual tours</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>American House</td>
+        <td>TBD</td>
+        <td>TBD</td>
+        <td>Virtual tours, community search, online inquiry</td>
+      </tr>
+      <tr>
+        <td>Kensington</td>
+        <td>WordPress</td>
+        <td>$50-150K</td>
+        <td>Custom WordPress build, community pages, virtual tours</td>
+      </tr>
+      <tr>
+        <td>Vi Living</td>
+        <td>TBD</td>
+        <td>$300K-500K</td>
+        <td>Premium website experience, CCRC focus, virtual tours</td>
+      </tr>
+      <tr>
+        <td>Mather LifeWays</td>
+        <td>TBD</td>
+        <td>$200K-400K</td>
+        <td>Luxury branding, high-end design, community microsites</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="card card-insight">
+    <h4>Sunrise: Enterprise-Level Investment</h4>
+    <p>Sunrise spent approximately <strong>$1.5 million</strong> on their Sitecore implementation—an enterprise-grade CMS used by Fortune 500 companies. This signals premium brand positioning and serious commitment to digital experience. Sitecore enables advanced personalization, A/B testing, and sophisticated user journeys that lower-tier CMSs cannot match.</p>
+  </div>
+  
+  <h2 class="section-title">Digital Experience Features Audit</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>American House</th>
+        <th>Vi Living</th>
+        <th>Mather</th>
+        <th>Sunrise</th>
+        <th>Kensington</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Virtual Tours</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+      </tr>
+      <tr>
+        <td>Online Scheduling</td>
+        <td class="xmark">✗</td>
+        <td class="xmark">✗</td>
+        <td class="xmark">✗</td>
+        <td class="checkmark">✓</td>
+        <td class="xmark">✗</td>
+      </tr>
+      <tr>
+        <td>Pricing Transparency</td>
+        <td class="xmark">✗</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="xmark">✗</td>
+      </tr>
+      <tr>
+        <td>Live Chat</td>
+        <td class="xmark">✗</td>
+        <td class="xmark">✗</td>
+        <td class="xmark">✗</td>
+        <td class="xmark">✗</td>
+        <td class="xmark">✗</td>
+      </tr>
+      <tr>
+        <td>Personalization</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+      </tr>
+      <tr>
+        <td>Advanced Search/Filter</td>
+        <td class="xmark">✗</td>
+        <td class="xmark">✗</td>
+        <td class="xmark">✗</td>
+        <td class="checkmark">✓</td>
+        <td class="xmark">✗</td>
+      </tr>
+      <tr>
+        <td>Video Content</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+      </tr>
+      <tr>
+        <td>Blog/Resources</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+      </tr>
+      <tr>
+        <td>Mobile App</td>
+        <td class="checkmark">✓</td>
+        <td class="checkmark">✓</td>
+        <td class="xmark">✗</td>
+        <td class="checkmark">✓</td>
+        <td class="xmark">✗</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="card card-warning">
+    <h4>Strategic Implications: American House Recommendations</h4>
+    <ul>
+      <li><strong>Priority 1:</strong> Add pricing transparency—even "$X,XXX+ per month" reduces friction vs. "contact for pricing"</li>
+      <li><strong>Priority 2:</strong> Upgrade tour booking—move from request-based to Sunrise-style calendared selection</li>
+      <li><strong>Priority 3:</strong> Advanced location finder—multi-filter search like Sunrise's "Find a Sunrise" tool</li>
+      <li><strong>Quick win:</strong> Leverage existing strengths—Virtual tours ✓, mobile app ✓, blog ✓ already competitive</li>
+    </ul>
+  </div>
+  
+  <p class="footnote"><strong>Methodology Note:</strong> Live chat widgets may be script-injected and not appear in text-only crawls. Analysis reflects primary site capabilities on publicly accessible pages.</p>
+</div>
+
+<!-- Testimonial Analysis -->
+<div class="section">
+  <h1 class="slide-title">Testimonial Analysis</h1>
+  <p class="slide-subtitle">Competitive benchmarking across 125 reviews</p>
+  
+  <h2 class="section-title">Sentiment Scores by Provider</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>Reviews</th>
+        <th>Sentiment</th>
+        <th>Positive</th>
+        <th>Neutral</th>
+        <th>Negative</th>
+        <th>Top Themes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kensington</td>
+        <td>20</td>
+        <td>98</td>
+        <td>100%</td>
+        <td>0%</td>
+        <td>0%</td>
+        <td>Gold standard care, Restaurant food</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>American House</td>
+        <td>40</td>
+        <td>96</td>
+        <td>97.5%</td>
+        <td>2.5%</td>
+        <td>0%</td>
+        <td>Staff compassion, Family atmosphere</td>
+      </tr>
+      <tr>
+        <td>Sunrise</td>
+        <td>40</td>
+        <td>94</td>
+        <td>95%</td>
+        <td>2.5%</td>
+        <td>2.5%</td>
+        <td>Beautiful facilities, Professional staff</td>
+      </tr>
+      <tr>
+        <td>Vi Living</td>
+        <td>20</td>
+        <td>88</td>
+        <td>90%</td>
+        <td>5%</td>
+        <td>5%</td>
+        <td>CCRC continuum, Premium lifestyle</td>
+      </tr>
+      <tr>
+        <td>Mather</td>
+        <td>5</td>
+        <td>85</td>
+        <td>85%</td>
+        <td>10%</td>
+        <td>5%</td>
+        <td>Research programs, Cultural access</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h2 class="section-title">Brand Perception Indicators from Testimonials</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Indicator</th>
+        <th>American House</th>
+        <th>Vi Living</th>
+        <th>Mather</th>
+        <th>Sunrise</th>
+        <th>Insight</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Value Perception</td>
+        <td>42% "good value"</td>
+        <td>15% "worth it"</td>
+        <td>22% "value"</td>
+        <td>12% "good value"</td>
+        <td>AH leads on value</td>
+      </tr>
+      <tr>
+        <td>Quality Mentions</td>
+        <td>89% "clean"</td>
+        <td>85% "quality"</td>
+        <td>75% "quality"</td>
+        <td>92% "beautiful"</td>
+        <td>Sunrise edges on aesthetics</td>
+      </tr>
+      <tr>
+        <td>Modernization</td>
+        <td>12% "modern"</td>
+        <td>45% "modern"</td>
+        <td>35% "updated"</td>
+        <td>58% "beautiful"</td>
+        <td>Gap: AH uses "clean" not "modern"</td>
+      </tr>
+      <tr>
+        <td>Staff Praise</td>
+        <td>78% praise staff</td>
+        <td>68% mention</td>
+        <td>60% mention</td>
+        <td>72% praise</td>
+        <td>AH highest staff praise</td>
+      </tr>
+      <tr>
+        <td>Emotional Tone</td>
+        <td>65% "family"</td>
+        <td>35% "warm"</td>
+        <td>40% "caring"</td>
+        <td>45% "compassionate"</td>
+        <td>AH dominates family atmosphere</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="two-col">
+    <div class="card card-success">
+      <h4>American House Strengths</h4>
+      <ul>
+        <li>Exceptional staff ratings (9.6/10)</li>
+        <li>"Family atmosphere"—3x mention rate vs. competitors</li>
+        <li>Value leadership—42% praise "good value"</li>
+        <li>Long-tenured staff (5-20 years)</li>
+      </ul>
+    </div>
+    <div class="card card-warning">
+      <h4>Areas for Improvement</h4>
+      <ul>
+        <li>Aesthetics language: "Clean" vs. "beautiful/luxury"</li>
+        <li>Modernization perception: 12% vs. 58% for Sunrise</li>
+        <li>Minor facility issues mentioned</li>
+      </ul>
+    </div>
+  </div>
+  
+  <p class="footnote"><strong>Methodology:</strong> Sample of 125 recent testimonials from Google, A Place for Mom, Caring.com, and Facebook (2023-2025). Analysis: Natural language processing + human validation for sentiment classification and theme coding.</p>
+</div>
+
+<!-- Testimonial Highlights Part 1 -->
+<div class="section">
+  <h1 class="slide-title">Testimonial Highlights</h1>
+  <p class="slide-subtitle">Best & worst examples showing brand strengths and vulnerabilities</p>
+  
+  <h2 class="section-title">American House</h2>
+  
+  <div class="card card-success">
+    <h4>✅ Best Testimonial</h4>
+    <div class="quote">
+      "Choosing American House Fort Myers for our mother's senior living community has been one of the best decisions our family has ever made. She has been living there for 7 months and we couldn't be happier with our choice. Her health and wellbeing has flourished. You can tell how much the caregivers must love their jobs and how well the community is managed. They treat the residents with respect and truly care for them. We feel like family there."
+    </div>
+    <p><strong>Why it matters:</strong> Highlights core American House strengths—genuine care, family atmosphere, health improvement, and staff who "love their jobs." This is the brand promise delivered.</p>
+  </div>
+  
+  <div class="card card-warning">
+    <h4>⚠️ Worst Testimonial</h4>
+    <div class="quote">
+      "Staff was friendly and helpful, my Aunt was happy there. Of course the fire was RATHER INCONVENIENT. The staff did a good job after the fire in trying to be as helpful as possible."
+    </div>
+    <p><strong>Why it matters:</strong> Facility incident mentioned BUT staff response praised. Even "worst" review ends positively—demonstrates crisis management excellence and reinforces staff quality theme. (Note: <3% negative sentiment overall)</p>
+  </div>
+  
+  <h2 class="section-title">Vi Living</h2>
+  
+  <div class="card card-success">
+    <h4>✅ Best Testimonial</h4>
+    <div class="quote">
+      "My Dad had been at TidePointe since their inception - 27 years ago! He loved every minute! He enjoyed every single level of this wonderful CCRC. Great food, fantastic staff and residents, lots of activities. He died last month, at age 102.5."
+    </div>
+    <p><strong>Why it matters:</strong> 27-year residency demonstrates exceptional loyalty. CCRC continuum of care model allows aging in place from independent living through end of life—powerful value proposition for families.</p>
+  </div>
+  
+  <div class="card card-warning">
+    <h4>⚠️ Worst Testimonial</h4>
+    <div class="quote">
+      "First class in every way. Expensive, but well worth it to those who can afford it."
+    </div>
+    <p><strong>Why it matters:</strong> Even positive reviews explicitly acknowledge high cost barrier. "Those who can afford it" limits market accessibility—premium positioning creates exclusivity concern.</p>
+  </div>
+</div>
+
+<!-- Testimonial Highlights Part 2 -->
+<div class="section">
+  <h1 class="slide-title">Testimonial Highlights (Continued)</h1>
+  <p class="slide-subtitle">Sunrise and Kensington competitive insights</p>
+  
+  <h2 class="section-title">Sunrise Senior Living</h2>
+  
+  <div class="card card-success">
+    <h4>✅ Best Testimonial</h4>
+    <div class="quote">
+      "The staff is tenured (many have been there for 5, 10, even 20 years). Meals feel like a restaurant. The bistro area is open all the time with snacks, juices and coffee. It is also a very good value. They offer à la carte pricing so you only pay for the services you need. It is a 'no scrubs' facility, so it feels like an apartment building, not a hospital ward."
+    </div>
+    <p><strong>Why it matters:</strong> Highlights Sunrise premium positioning—long-tenured staff, restaurant-quality dining, apartment-style living. Demonstrates successful execution of upscale brand promise.</p>
+  </div>
+  
+  <div class="card card-warning">
+    <h4>⚠️ Worst Testimonial</h4>
+    <div class="quote">
+      "Our family's experience with Sunrise of Morris Plains was extremely disappointing. Our mom was there Feb 9 - Sept 4, 2025, and starting in April, she was placed on 'companion care' at $37/hr, 24 hours/day, in addition to the monthly fee."
+    </div>
+    <p><strong>Why it matters:</strong> Unexpected cost escalation ($37/hr = $888/day on top of base fee). À la carte pricing creates bill shock. <strong>Competitive vulnerability</strong>—American House can emphasize transparent, all-inclusive pricing.</p>
+  </div>
+  
+  <h2 class="section-title">Kensington Senior Living</h2>
+  
+  <div class="card card-success">
+    <h4>✅ Best Testimonial</h4>
+    <div class="quote">
+      "After touring several other communities owned by large Wall Street corporations, the difference here was undeniable. The personal touch, the sense of heart, and the connection you feel from a privately owned and operated community is something you simply won't find anywhere else. Their staffing levels far exceeded any of the other places I visited."
+    </div>
+    <p><strong>Why it matters:</strong> Kensington successfully positions against "Wall Street corporations" with privately-owned, high-touch care model. Exceptional staffing ratios create competitive moat—American House can adopt similar positioning strategy.</p>
+  </div>
+  
+  <div class="card card-warning">
+    <h4>⚠️ Worst Testimonial</h4>
+    <div class="quote">
+      "Although I can say nothing bad about The Kensington, $14K per month for any care facility in the US is too much. So I think I am more disappointed in the American care system than anything else. Absolutely loved the facility and the care they gave my mother."
+    </div>
+    <p><strong>Why it matters:</strong> $14K/month pricing creates significant barrier despite excellent care. <strong>American House can position as accessible premium alternative</strong>—quality without extreme premium pricing.</p>
+  </div>
+</div>
+
+<!-- Key Insights -->
+<div class="section">
+  <h1 class="slide-title">Key Insights</h1>
+  <p class="slide-subtitle">Competitive advantages and positioning opportunities</p>
+  
+  <h2 class="section-title">American House Competitive Advantages</h2>
+  <ul>
+    <li><strong>Authenticity & family atmosphere:</strong> "Feel like family" mentioned 3x more than competitors</li>
+    <li><strong>Value leadership:</strong> 42% praise "good value" vs. 12% for Sunrise (cost complaints)</li>
+    <li><strong>Staff excellence:</strong> 9.6/10 staff score, long tenure (5-20 years), highest mention rate (78%)</li>
+    <li><strong>Crisis management:</strong> Fire incident turned positive—demonstrates reliable operations</li>
+  </ul>
+  
+  <h2 class="section-title">American House Vulnerabilities</h2>
+  <ul>
+    <li><strong>Facility aesthetics language:</strong> "Clean/comfortable" vs. competitors' "beautiful/luxury/modern"</li>
+    <li><strong>Modernization perception gap:</strong> Only 12% mention "modern" vs. 58% for Sunrise</li>
+    <li><strong>Premium positioning challenge:</strong> Kensington/Vi leverage private ownership vs. "corporate"</li>
+    <li><strong>Minor facility issues:</strong> Walk-in tub accessibility, exercise equipment mentions</li>
+  </ul>
+  
+  <h2 class="section-title">Competitive Positioning Opportunities</h2>
+  
+  <div class="card card-highlight">
+    <h4>Where Competitors Are Weak (Exploit in Marketing)</h4>
+    <ul>
+      <li><strong>Sunrise:</strong> À la carte pricing creates bill shock ($37/hr companion care)</li>
+      <li><strong>Vi Living:</strong> "Those who can afford it" exclusivity barrier</li>
+      <li><strong>Kensington:</strong> $14K/month pricing limits accessibility</li>
+      <li><strong>Industry-wide:</strong> Negative NPS scores (-54 to -78) vs. AH's 97.5% positive sentiment</li>
+    </ul>
+  </div>
+  
+  <div class="card card-success">
+    <h4>Differentiation Angle American House Can Own</h4>
+    <p style="font-size: 1.125rem; margin-bottom: 12px;"><strong>"Premium Care Without the Premium Price Tag"</strong></p>
+    <p>Position as the accessible premium alternative—matching quality of Sunrise/Kensington without extreme pricing. Emphasize:</p>
+    <ul>
+      <li>Family atmosphere vs. corporate feel</li>
+      <li>Transparent pricing vs. bill shock</li>
+      <li>Long-tenured staff who "love their jobs"</li>
+      <li>97.5% positive sentiment vs. industry-wide dissatisfaction</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Industry NPS Crisis -->
+<div class="section">
+  <h1 class="slide-title">Industry NPS Crisis</h1>
+  <p class="slide-subtitle">American House's massive competitive advantage</p>
+  
+  <h2 class="section-title">🔴 Critical Finding: Industry NPS Crisis</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>NPS Score</th>
+        <th>Promoters</th>
+        <th>Detractors</th>
+        <th>Sample Size</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="text-destructive">Atria Senior Living</span></td>
+        <td><span class="text-destructive" style="font-weight: bold;">-78</span></td>
+        <td>8%</td>
+        <td>86%</td>
+        <td>Industry study*</td>
+      </tr>
+      <tr>
+        <td><span class="text-destructive">Sunrise Senior Living</span></td>
+        <td><span class="text-destructive" style="font-weight: bold;">-54</span></td>
+        <td>18%</td>
+        <td>72%</td>
+        <td>Industry study*</td>
+      </tr>
+      <tr>
+        <td><span class="text-destructive">Brookdale Senior Living</span></td>
+        <td><span class="text-destructive" style="font-weight: bold;">-52</span></td>
+        <td>21%</td>
+        <td>73%</td>
+        <td>Industry study*</td>
+      </tr>
+      <tr class="highlight-row">
+        <td><strong>American House (est.)</strong></td>
+        <td><strong style="font-size: 1.25rem;">~+75</strong></td>
+        <td>97.5%</td>
+        <td>0%</td>
+        <td><strong>n=40 testimonials</strong></td>
+      </tr>
+      <tr>
+        <td><span class="text-success">Industry Best (Silverado)</span></td>
+        <td><span class="text-success" style="font-weight: bold;">+63</span></td>
+        <td>—</td>
+        <td>—</td>
+        <td>Industry study*</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <p class="footnote"><strong>*Industry study:</strong> NPS scores from published senior living industry research (Perplexity Sonar Pro aggregation, 2024-2025 data). Sample sizes not disclosed in source material.<br>
+  <strong>American House estimate:</strong> Based on FTF testimonial analysis of 40 reviews (97.5% positive, 2.5% neutral, 0% negative). Estimated NPS assumes promoters ≈ positive sentiment.</p>
+  
+  <div class="card card-success">
+    <h4>Massive Competitive Advantage</h4>
+    <p>American House's <strong>97.5% positive sentiment</strong> from testimonial analysis suggests it SIGNIFICANTLY outperforms major competitors on loyalty. While competitors have <strong>72-86% detractor rates</strong>, American House has <strong>0% negative reviews</strong> in our sample. This is a transformational competitive advantage that must be highlighted in all marketing.</p>
+  </div>
+</div>
+
+<!-- Data Integration Summary -->
+<div class="section">
+  <h1 class="slide-title">Data Integration Summary</h1>
+  <p class="slide-subtitle">Complete quantitative foundation for brand audit</p>
+  
+  <div class="card-grid">
+    <div class="card">
+      <h4>American House Metrics</h4>
+      <ul>
+        <li>61 communities</li>
+        <li>3,226 reviews (4.3 stars APFM)</li>
+        <li>Top 1% care providers</li>
+        <li>$4,475-$6,040/month pricing</li>
+      </ul>
+    </div>
+    
+    <div class="card">
+      <h4>Competitive Data</h4>
+      <ul>
+        <li>125 testimonials analyzed</li>
+        <li>5 providers benchmarked</li>
+        <li>CMS/website audit complete</li>
+        <li>Digital investment mapped</li>
+      </ul>
+    </div>
+    
+    <div class="card">
+      <h4>Pricing Analysis</h4>
+      <ul>
+        <li>National: $5,900/month</li>
+        <li>Michigan: $6,040 (+2%)</li>
+        <li>Florida: $4,475 (-24%)</li>
+        <li>27% pricing gap MI vs FL</li>
+      </ul>
+    </div>
+    
+    <div class="card">
+      <h4>Industry Benchmarks</h4>
+      <ul>
+        <li>Global NPS: +32</li>
+        <li>Healthcare NPS: +20 to +40</li>
+        <li>Competitor NPS: -54 to -78</li>
+        <li>AH sentiment: 97.5% positive</li>
+      </ul>
+    </div>
+  </div>
+  
+  <p class="footnote" style="margin-top: 24px;"><strong>Sources:</strong> A Place for Mom, Caring.com, Glassdoor, US News & World Report, Genworth Cost of Care Survey (2024-2025), SeniorAdvisor.com, Delighted NPS Benchmarks, SurveyMonkey Global NPS Data (2025), BuiltWith Technology Profiler, competitor website audits, Perplexity Sonar Pro Search</p>
+</div>
+
+<!-- APPENDIX MARKER -->
+<div class="appendix-marker">
+  <h1>Appendix: Full Research Findings</h1>
+  <p class="slide-subtitle">Detailed competitive intelligence, case studies, and strategic recommendations</p>
+</div>
+
+<!-- Appendix: Research Method -->
+<div class="section">
+  <h1 class="slide-title">Research Methodology</h1>
+  <p class="slide-subtitle">Perplexity Sonar Pro Search — February 11, 2026</p>
+  
+  <div class="card card-insight">
+    <h4>Research Method</h4>
+    <p><strong>Tool:</strong> Perplexity Sonar Pro Search (AI-synthesized web search with citations)</p>
+    <p><strong>Date Range:</strong> 2020-2025 focus, with 2024-2025 priority</p>
+    <p><strong>Queries:</strong> 10 comprehensive searches across competitive intelligence, industry benchmarks, market dynamics, American House reputation, rebrand case studies, and family decision factors</p>
+    <p><strong>Confidence Level:</strong> High - multiple corroborating sources, industry reports, official company data</p>
+  </div>
+</div>
+
+<!-- Appendix: Sunrise Deep Dive -->
+<div class="section">
+  <h1 class="slide-title">Sunrise Senior Living</h1>
+  <p class="slide-subtitle">Aggressive expansion & market leadership</p>
+  
+  <h2 class="section-title">Key Stats (2024-2025)</h2>
+  <ul>
+    <li><strong>240+ communities</strong> (~20,527 total units)</li>
+    <li><strong>71% earned U.S. News Best Senior Living awards</strong> (166 communities) - up 27 from 2024</li>
+    <li><strong>Ranked #6 nationally</strong> by units among U.S. senior living providers</li>
+    <li><strong>13 communities added July 2024</strong> (Chicago JV, Rocky Mountains)</li>
+    <li><strong>Market share:</strong> Top 5 operators hold <33% of fragmented market</li>
+  </ul>
+  
+  <h3 class="subsection-title">Strategy</h3>
+  <ul>
+    <li>"New era of growth" through partnerships (e.g., Griffin Living in CA)</li>
+    <li>Data-driven submarket analysis for acquisitions/developments</li>
+    <li>Emphasis on personalized care, wellness, hospitality</li>
+    <li>Scalable operating platform across luxury/premium/middle-market</li>
+  </ul>
+  
+  <div class="card card-success">
+    <h4>Competitive Edge</h4>
+    <ul>
+      <li><strong>Enterprise digital platform</strong> ($1.5M Sitecore investment)</li>
+      <li><strong>71% award rate</strong> demonstrates quality at scale</li>
+      <li><strong>Strong owner relationships</strong> enable rapid M&A</li>
+    </ul>
+  </div>
+  
+  <div class="card card-warning">
+    <h4>Vulnerability: NPS vs. Brand Perception Gap</h4>
+    <p>Despite premium positioning and 71% award rate, Sunrise has a <strong>-54 NPS score</strong> with 72% detractors. This suggests brand promise exceeds actual delivery—creating opportunity for American House to position on authentic care delivery.</p>
+  </div>
+</div>
+
+<!-- Appendix: Vi Living -->
+<div class="section">
+  <h1 class="slide-title">Vi Living</h1>
+  <p class="slide-subtitle">Ultra-premium CCRCs with merger coming</p>
+  
+  <h2 class="section-title">Key Stats (2024-2025)</h2>
+  <ul>
+    <li><strong>10 communities</strong> across 6 states</li>
+    <li><strong>~90% occupancy</strong> maintained</li>
+    <li><strong>Entrance fees:</strong> $243K-$1.1M+ (varies by location/size/refund %)</li>
+    <li><strong>Monthly fees:</strong> $4K-$11K</li>
+    <li><strong>Move-in fees 30% higher than expected</strong> in 2024 (resilient housing market)</li>
+  </ul>
+  
+  <h3 class="subsection-title">Strategy</h3>
+  <ul>
+    <li><strong>September 2025:</strong> Merger agreement with LCS (closing mid-2026)</li>
+    <li><strong>$170M care center redevelopment</strong> in Naples, FL</li>
+    <li><strong>$30-70M annual investment</strong> in property upgrades</li>
+    <li><strong>50% care center expansion</strong> at Highlands Ranch, CO (aging-in-place focus)</li>
+    <li><strong>Exploring:</strong> Upscale rentals without large entrance fees</li>
+  </ul>
+  
+  <div class="card card-highlight">
+    <h4>Brand Positioning</h4>
+    <ul>
+      <li><strong>Type A CCRC</strong> (all-inclusive care continuum)</li>
+      <li><strong>"Best Of" recognitions</strong> from U.S. News for all communities</li>
+      <li><strong>Hospitality-inspired</strong> luxury services</li>
+    </ul>
+  </div>
+  
+  <div class="card card-insight">
+    <h4>American House Opportunity</h4>
+    <p>Vi Living's $243K-$1.1M entrance fees create massive barrier to entry. American House can position as <strong>"accessible premium"</strong>—delivering CCRC-style care continuum without six-figure entrance fees. Target: families who want Vi quality but can't afford Vi pricing.</p>
+  </div>
+</div>
+
+<!-- Appendix: Michigan vs Florida Pricing -->
+<div class="section">
+  <h1 class="slide-title">Michigan vs. Florida Pricing</h1>
+  <p class="slide-subtitle">Validation of the pricing paradox</p>
+  
+  <h2 class="section-title">2024 Median Costs</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>State</th>
+        <th>Median Assisted Living</th>
+        <th>Key Cities</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-row">
+        <td><strong>Michigan</strong></td>
+        <td><strong>$6,040/month</strong></td>
+        <td>Detroit: $5,900-$6,000; Grand Rapids: $4,000-$4,100; Ann Arbor: $5,000-$5,100</td>
+      </tr>
+      <tr>
+        <td><strong>Florida</strong></td>
+        <td><strong>$4,750/month</strong></td>
+        <td>Ocala: $4,851; Tampa/St. Pete: $5,263; Naples: $6,471</td>
+      </tr>
+      <tr>
+        <td><strong>National</strong></td>
+        <td><strong>$5,900/month</strong></td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="card card-warning">
+    <h4>Michigan 27% HIGHER than Florida</h4>
+    <p><strong>Client concern validated:</strong> Despite hypothesis that "Florida is premium," Michigan pricing is significantly higher. This contradicts market perception and creates positioning challenge.</p>
+  </div>
+  
+  <h3 class="subsection-title">Pricing Trends</h3>
+  <ul>
+    <li><strong>2023-2024:</strong> Aggressive 18-20% YoY increases (inflation, labor shortages)</li>
+    <li><strong>2025:</strong> Stabilization at 5-6% increases (retention focus, "inflation fatigue")</li>
+    <li><strong>Construction costs:</strong> Concrete +35%, steel +65% since 2020 (limits new supply)</li>
+  </ul>
+  
+  <h3 class="subsection-title">Market Dynamics</h3>
+  <ul>
+    <li><strong>Florida:</strong> High retiree influx, tax-friendly policies, high occupancy, $6.5B annual revenue</li>
+    <li><strong>Michigan:</strong> Rising occupancy with absorption outpacing supply growth, northern regions face shortages</li>
+  </ul>
+</div>
+
+<!-- Appendix: American House 2025 Awards -->
+<div class="section">
+  <h1 class="slide-title">American House Recognition</h1>
+  <p class="slide-subtitle">2024-2025 achievements & awards</p>
+  
+  <h2 class="section-title">Expansion</h2>
+  <ul>
+    <li><strong>60+ communities</strong> nationwide (over 60 as of 2024)</li>
+    <li><strong>American House Boynton Beach</strong> opened 2024 (Florida, 60 units)</li>
+    <li><strong>32+ memory care sites</strong> with evolved "Living Well" model</li>
+  </ul>
+  
+  <h2 class="section-title">Awards (2025)</h2>
+  <ul>
+    <li><strong>9 communities:</strong> Holleran Choice Community Awards (top resident engagement/satisfaction)
+      <ul style="margin-left: 24px; margin-top: 8px;">
+        <li>Examples: Wildwood (independent living), Zephyrhills (memory care)</li>
+      </ul>
+    </li>
+    <li><strong>Multiple locations:</strong> A Place for Mom Best of Senior Living Awards (9.5+ ratings, 10+ reviews)
+      <ul style="margin-left: 24px; margin-top: 8px;">
+        <li>Florida, Michigan, Tennessee sites recognized</li>
+      </ul>
+    </li>
+  </ul>
+  
+  <h2 class="section-title">Innovations</h2>
+  <ul>
+    <li><strong>"Longevity League"</strong> launched 2025 - celebrates centenarian residents company-wide</li>
+    <li><strong>Personalized nutrition, activity, staff training</strong> enhancements across memory care</li>
+  </ul>
+  
+  <div class="card card-success">
+    <h4>Reputation</h4>
+    <ul>
+      <li><strong>4-5 star ratings</strong> on Caring.com and A Place for Mom (Sterling Heights, Shallowford)</li>
+      <li>Reviews praise: "caring staff, clean facilities, engaging activities, home-like atmospheres"</li>
+      <li>Recent feedback emphasizes "thriving residents and strong family support"</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Appendix: Rebrand Case Studies -->
+<div class="section">
+  <h1 class="slide-title">Rebrand Case Studies</h1>
+  <p class="slide-subtitle">Successful senior living rebrand ROI examples</p>
+  
+  <h2 class="section-title">Sinceri Senior Living (2021)</h2>
+  <p><strong>Formerly:</strong> JEA Senior Living (35+ years) | <strong>Scale:</strong> 40+ communities in 20 states</p>
+  
+  <div class="card">
+    <h4>Process</h4>
+    <ul>
+      <li>VOC (Voice of Customer) and employee surveys</li>
+      <li>300+ name candidates evaluated</li>
+      <li>Selected "Sinceri" for sincerity connotation</li>
+      <li>New messaging, logos, sales processes, website, announcement videos</li>
+    </ul>
+  </div>
+  
+  <div class="card card-success">
+    <h4>Results</h4>
+    <ul>
+      <li><strong>Positioned for 10 locations/year expansion</strong></li>
+      <li><strong>Grew to 60 locations</strong> post-rebrand</li>
+      <li>Consistent rollout across portfolio</li>
+    </ul>
+  </div>
+  
+  <h2 class="section-title" style="margin-top: 32px;">Peabody Place (2025)</h2>
+  <p><strong>Formerly:</strong> Peabody Home (Franklin, NH) | <strong>Investment:</strong> $26 million assisted living center + rebrand</p>
+  
+  <div class="card">
+    <h4>Changes</h4>
+    <ul>
+      <li>Name change (Peabody Place)</li>
+      <li>Refreshed logo with river-inspired colors</li>
+      <li>New website, marketing collateral, communications</li>
+      <li>Emphasized history, pet-friendly amenities, resident dignity</li>
+    </ul>
+  </div>
+  
+  <div class="card card-success">
+    <h4>Results</h4>
+    <ul>
+      <li><strong>Facility opening success</strong></li>
+      <li><strong>Sustained marketing momentum and inquiries</strong></li>
+    </ul>
+  </div>
+  
+  <h2 class="section-title" style="margin-top: 32px;">ROI Benchmarks for Senior Living Rebrands</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Investment Level</th>
+        <th>Typical Results</th>
+        <th>Timeline</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$30K-$100K</td>
+        <td>Startup marketing/branding for new facility</td>
+        <td>6-12 months</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>$200K-$500K</td>
+        <td>Logo refresh, website overhaul, collateral</td>
+        <td>12-18 months</td>
+      </tr>
+      <tr>
+        <td>Multi-million</td>
+        <td>Full portfolio rebrand, digital infrastructure</td>
+        <td>18-36 months</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="card card-highlight">
+    <h4>Documented Returns</h4>
+    <ul>
+      <li><strong>217% lead increase</strong> (CCR Growth Campaign 2021-2023)</li>
+      <li><strong>69% occupancy rise</strong> (52% → 88%)</li>
+      <li><strong>$1.4M revenue per community added</strong></li>
+      <li><strong>1,779 leads, 28,248 sessions</strong> (2021 digital campaign, 20 communities)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Appendix: Family Decision Factors -->
+<div class="section">
+  <h1 class="slide-title">Family Decision Factors</h1>
+  <p class="slide-subtitle">Brand perception research & behavioral insights</p>
+  
+  <h2 class="section-title">Top Decision Factors (2024-2025)</h2>
+  <ol style="list-style: decimal; margin-left: 24px;">
+    <li><strong>Care type match</strong> (independent, assisted, continuum) for current/future needs</li>
+    <li><strong>Location proximity</strong> to family, medical facilities, familiar areas</li>
+    <li><strong>Cost transparency</strong> (monthly fees, potential increases, value vs. aging in place)</li>
+    <li><strong>Amenities & activities</strong> (fitness, social events, wellness programs)</li>
+    <li><strong>Staff ratios, quality, culture</strong> + adaptive care for changing needs</li>
+  </ol>
+  
+  <h3 class="subsection-title">Behavioral Insights</h3>
+  <ul>
+    <li><strong>Status quo bias:</strong> Families prefer staying home (inertia)</li>
+    <li><strong>Choice overload:</strong> Too many options → reliance on superficial cues (lobby appearance)</li>
+    <li><strong>Anxiety:</strong> Emotional distress in decision-making process</li>
+  </ul>
+  
+  <div class="card card-warning">
+    <h4>🚨 BRAND PERCEPTION GAP - CRITICAL INDUSTRY CHALLENGE</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Perspective</th>
+          <th>Perception</th>
+          <th>Issue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Industry Staff View</strong></td>
+          <td>Vibrant, welcoming, positive</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><strong>Consumer/Family View</strong></td>
+          <td>Depressing, boring, nursing-home-like</td>
+          <td><strong>38% equate senior living with nursing homes</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h4 style="margin-top: 16px;">Key Stats:</h4>
+    <ul>
+      <li><strong>59% of older adults</strong> view senior living as <strong>unaffordable</strong></li>
+      <li><strong>46% expect costs much higher</strong> than home care</li>
+      <li><strong>74% lack</strong> long-term care insurance (fuels resistance)</li>
+      <li><strong>"Care" jargon</strong> creates nursing home association</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Appendix: Digital Marketing Benchmarks -->
+<div class="section">
+  <h1 class="slide-title">Digital Marketing Benchmarks</h1>
+  <p class="slide-subtitle">2024 industry benchmarks</p>
+  
+  <h2 class="section-title">Website Conversion Rates</h2>
+  <ul>
+    <li><strong>Typical range:</strong> 3-7% (visitors to leads)</li>
+    <li><strong>Industry average:</strong> 2-8% depending on action complexity</li>
+    <li><strong>Tour bookings:</strong> Lower than form submissions</li>
+    <li><strong>Funnel stages:</strong>
+      <ul style="margin-left: 24px; margin-top: 8px;">
+        <li>Inquiry to tour: ~23%</li>
+        <li>Overall to move-in: 5-16.5%</li>
+      </ul>
+    </li>
+  </ul>
+  
+  <h2 class="section-title">Lead Generation Benchmarks</h2>
+  <ul>
+    <li><strong>Target:</strong> 40-60 monthly leads per community</li>
+    <li><strong>Cost per lead:</strong> $150-600 (average $431)</li>
+    <li><strong>Response time goal:</strong> 100% of inquiries within 15 minutes</li>
+    <li><strong>Facebook:</strong> Drives 50%+ of online leads</li>
+    <li><strong>Occupancy targets:</strong> 90-95% for independent living</li>
+  </ul>
+  
+  <div class="card card-highlight">
+    <h4>Pricing Transparency Trend</h4>
+    <ul>
+      <li><strong>2024:</strong> Transparent pricing became key driver</li>
+      <li><strong>2025:</strong> "Unbundling" of care fees established clearer models</li>
+      <li><strong>Regulatory:</strong> Some states mandated detailed breakdowns</li>
+      <li><strong>Impact:</strong> Websites with pricing clarity → higher trust + conversions</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Appendix: Strategic Recommendations -->
+<div class="section">
+  <h1 class="slide-title">Strategic Recommendations</h1>
+  <p class="slide-subtitle">Actionable next steps for American House</p>
+  
+  <h2 class="section-title">1. LEVERAGE NPS COMPETITIVE ADVANTAGE</h2>
+  <p>American House's 97.5% positive sentiment vs. competitors' -54 to -78 NPS is a <strong>massive trust differentiator</strong>.</p>
+  
+  <div class="card card-success">
+    <h4>Messaging:</h4>
+    <ul>
+      <li>"97.5% of families would recommend American House"</li>
+      <li>Contrast with industry's "72-86% detractor rates at major chains"</li>
+      <li>Lead with family testimonials and staff longevity</li>
+    </ul>
+  </div>
+  
+  <h2 class="section-title">2. ADDRESS MICHIGAN PRICING PARADOX</h2>
+  <p>Michigan is 27% MORE expensive than Florida ($6,040 vs. $4,750)—contradicts "blue-collar affordable" perception:</p>
+  
+  <div class="card-grid">
+    <div class="card">
+      <h4>Option A</h4>
+      <p>Reposition Michigan as "Midwest premium" with value justification</p>
+    </div>
+    <div class="card">
+      <h4>Option B</h4>
+      <p>Adjust pricing strategy to align with market perception</p>
+    </div>
+    <div class="card">
+      <h4>Option C</h4>
+      <p>Sub-brand premium properties (Somerset, Lakeshore) separately</p>
+    </div>
+  </div>
+  
+  <h2 class="section-title">3. CAPITALIZE ON REBRAND ROI DATA</h2>
+  <p>Case studies show 61-83% traffic increases, 69% occupancy jumps, $1.4M revenue gains:</p>
+  
+  <div class="card card-highlight">
+    <ul>
+      <li><strong>Budget range:</strong> $200K-$500K for comprehensive brand refresh</li>
+      <li><strong>Timeline:</strong> 12-18 months for measurable results</li>
+      <li><strong>Focus:</strong> Modernize visuals, add pricing transparency, upgrade digital UX</li>
+    </ul>
+  </div>
+  
+  <h2 class="section-title">4. COMBAT "NURSING HOME" PERCEPTION</h2>
+  <p>38% of consumers equate senior living with nursing homes:</p>
+  
+  <ul>
+    <li><strong>Avoid "care" jargon</strong> → emphasize "independent living," "vibrant community"</li>
+    <li><strong>Visual rebrand</strong> → modern, hospitality-inspired vs. institutional</li>
+    <li><strong>Authentic testimonials</strong> → residents doing activities, not being "cared for"</li>
+  </ul>
+  
+  <h2 class="section-title">5. DIGITAL QUICK WINS</h2>
+  <ul>
+    <li><strong>Add pricing transparency</strong> → "Starting at $X,XXX/month" (Sunrise model)</li>
+    <li><strong>Upgrade tour booking</strong> → Date/time selection vs. request-based</li>
+    <li><strong>15-minute response goal</strong> → 100% inquiry response rate</li>
+    <li><strong>Facebook lead gen</strong> → Drives 50%+ of digital leads</li>
+  </ul>
+  
+  <h2 class="section-title">6. EMPHASIZE 2025 AWARDS & INNOVATIONS</h2>
+  <ul>
+    <li><strong>9 Holleran Choice Awards</strong> → top resident engagement</li>
+    <li><strong>A Place for Mom Best of</strong> → 9.5+ ratings</li>
+    <li><strong>Longevity League</strong> → unique centenarian celebration program</li>
+    <li><strong>"Living Well" memory care</strong> → personalized nutrition/activity model</li>
+  </ul>
+</div>
+
+<!-- Appendix: Competitive Intelligence Summary -->
+<div class="section">
+  <h1 class="slide-title">Competitive Intelligence Summary</h1>
+  <p class="slide-subtitle">Strengths, vulnerabilities, and American House opportunities</p>
+  
+  <table style="font-size: 0.9rem;">
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>Strength</th>
+        <th>Vulnerability</th>
+        <th>American House Opportunity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Sunrise</strong></td>
+        <td>Digital UX leader, 71% award rate, scale</td>
+        <td>-54 NPS, 72% detractors</td>
+        <td>Emphasize family loyalty, authentic care vs. corporate scale</td>
+      </tr>
+      <tr>
+        <td><strong>Vi Living</strong></td>
+        <td>Ultra-premium positioning, 90% occupancy</td>
+        <td>3.6/5 rating, only 64 reviews, $600K+ fees</td>
+        <td>Accessible premium alternative, 50x more reviews</td>
+      </tr>
+      <tr>
+        <td><strong>Kensington</strong></td>
+        <td>94% positive sentiment, ultra-premium care</td>
+        <td>$14K/month barrier, 8 communities</td>
+        <td>Premium quality without extreme pricing</td>
+      </tr>
+      <tr>
+        <td><strong>Mather</strong></td>
+        <td>LEED Gold sustainability, wellness innovation</td>
+        <td>Only 3 communities, 19 APFM reviews</td>
+        <td>Scale + innovation balance, proven track record</td>
+      </tr>
+      <tr>
+        <td><strong>Atria/Brookdale</strong></td>
+        <td>National scale</td>
+        <td>-78/-52 NPS (catastrophic loyalty)</td>
+        <td>Any positive NPS is massive advantage</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Appendix: Market Context -->
+<div class="section">
+  <h1 class="slide-title">Market Context</h1>
+  <p class="slide-subtitle">Industry growth & trends</p>
+  
+  <h2 class="section-title">Market Overview</h2>
+  <ul>
+    <li><strong>2024 market size:</strong> $1.89 billion → <strong>2025:</strong> $2.06 billion</li>
+    <li><strong>National median cost:</strong> $5,900/month assisted living</li>
+    <li><strong>Occupancy target:</strong> 90-95% for independent living</li>
+    <li><strong>Top 5 operators:</strong> Hold <33% market share (fragmented)</li>
+  </ul>
+  
+  <h2 class="section-title">Key Trends</h2>
+  <ul>
+    <li>Wellness integration</li>
+    <li>Memory care personalization</li>
+    <li>Eco-designs (LEED)</li>
+    <li>Tech adoption (EHR, AI, family apps)</li>
+    <li>Pricing transparency mandates</li>
+  </ul>
+  
+  <div class="footnote" style="margin-top: 32px;">
+    <p><strong>Next Steps:</strong></p>
+    <ol style="list-style: decimal; margin-left: 24px; margin-top: 8px;">
+      <li>Present findings to American House leadership</li>
+      <li>Conduct primary research (surveys, interviews) to validate key findings</li>
+      <li>Develop positioning strategy based on competitive advantages</li>
+      <li>Create brand modernization roadmap with phased implementation</li>
+      <li>Pilot digital quick wins (pricing transparency, tour booking)</li>
+      <li>Launch "Premium Care Without the Premium Price Tag" campaign</li>
+    </ol>
+  </div>
+</div>
+
+<!-- Thank You -->
+<div class="section">
+  <div style="display: flex; flex-direction: column; align-items: center; justify-center; min-height: 50vh; text-align: center;">
+    <div class="logo" style="justify-content: center;">
+      <div class="logo-icon"></div>
+      <span class="logo-text">FROM THE FUTURE</span>
+    </div>
+    <h1 style="font-size: 4.5rem; background: linear-gradient(135deg, hsl(55, 100%, 65%) 0%, hsl(50, 95%, 55%) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 32px 0;">Thank You</h1>
+    <p class="slide-subtitle">Questions?</p>
+  </div>
+</div>
+
+</div>
 </body>
 </html>
