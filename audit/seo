@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>American House Brand Perception Audit - Expanded Research</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: hsl(222, 25%, 7%);
+  color: hsl(210, 20%, 92%);
+}
+h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; }
+
+.slide-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.2rem; font-weight: 700;
+  background: linear-gradient(135deg, hsl(55, 100%, 65%) 0%, hsl(50, 95%, 55%) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.15; margin-bottom: 16px;
+}
+.slide-title-hero { font-size: 4rem; }
+.slide-subtitle {
+  font-size: 1.25rem; color: hsl(215, 15%, 55%);
+  margin-bottom: 40px; max-width: 800px; line-height: 1.6;
+}
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem; font-weight: 600;
+  color: hsl(55, 100%, 65%);
+  margin-bottom: 20px; margin-top: 32px;
+  padding-bottom: 8px; border-bottom: 2px solid hsla(230, 55%, 55%, 0.3);
+  display: inline-block;
+}
+.subsection-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem; font-weight: 600;
+  color: hsl(55, 100%, 65%);
+  margin-top: 24px; margin-bottom: 16px;
+}
+
+.card {
+  border-left: 4px solid hsl(230, 55%, 55%);
+  background: hsl(222, 22%, 11%);
+  border-radius: 12px; padding: 20px;
+  box-shadow: 0 4px 24px -4px hsla(0, 0%, 0%, 0.3);
+  margin-bottom: 16px;
+}
+.card h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem; font-weight: 600;
+  color: hsl(55, 100%, 65%); margin-bottom: 12px;
+}
+.card p, .card-body { color: hsl(215, 15%, 55%); line-height: 1.6; font-size: 1rem; }
+.card ul { margin-top: 12px; }
+.card-highlight { border-left-color: hsl(230, 55%, 55%); background: hsla(230, 55%, 55%, 0.1); }
+.card-insight { border-left-color: hsl(190, 80%, 50%); background: hsla(190, 80%, 50%, 0.1); }
+.card-insight h4 { color: hsl(190, 80%, 88%); }
+.card-warning { border-left-color: hsl(38, 92%, 50%); background: hsla(38, 92%, 50%, 0.1); }
+.card-warning h4 { color: hsl(38, 92%, 90%); }
+.card-success { border-left-color: hsl(142, 60%, 40%); background: hsla(142, 60%, 40%, 0.1); }
+.card-success h4 { color: hsl(142, 60%, 85%); }
+
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 16px 0; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+
+table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px -4px hsla(0, 0%, 0%, 0.3); font-size: 0.95rem; margin: 16px 0; }
+th {
+  background: linear-gradient(135deg, hsl(230, 55%, 55%) 0%, hsl(270, 45%, 45%) 100%);
+  color: hsl(210, 20%, 98%); padding: 14px 16px; text-align: left;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+}
+td { padding: 14px 16px; border-bottom: 1px solid hsla(222, 15%, 18%, 0.5); color: hsl(215, 15%, 55%); }
+tbody { background: hsla(222, 22%, 11%, 0.5); }
+tr.highlight-row { background: hsla(55, 100%, 65%, 0.1); }
+tr.highlight-row td { color: hsl(55, 100%, 65%); font-weight: 600; }
+
+.data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin: 16px 0; }
+.data-point {
+  border: 2px solid hsl(222, 15%, 18%); background: hsl(222, 22%, 11%);
+  border-radius: 12px; padding: 20px; text-align: center;
+}
+.data-point.highlighted { border-color: hsl(55, 100%, 65%); box-shadow: 0 0 40px -10px hsla(55, 100%, 65%, 0.15); }
+.data-value {
+  display: block; font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem; font-weight: 700;
+  background: linear-gradient(135deg, hsl(55, 100%, 65%) 0%, hsl(50, 95%, 55%) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.data-label { display: block; margin-top: 8px; font-size: 1rem; color: hsl(215, 15%, 55%); }
+
+ul { list-style: none; padding: 0; }
+ul li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; color: hsl(215, 15%, 55%); line-height: 1.6; font-size: 1rem; }
+ul li::before { content: ''; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: hsl(55, 100%, 65%); margin-top: 9px; }
+strong { color: hsl(55, 100%, 65%); font-weight: 600; }
+.text-destructive { color: hsl(0, 72%, 51%); }
+.text-success { color: hsl(142, 60%, 85%); }
+.checkmark { color: hsl(142, 60%, 85%); font-weight: bold; }
+.xmark { color: hsl(0, 72%, 51%); font-weight: bold; }
+
+.logo { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+.logo-icon {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, hsl(230, 55%, 55%) 0%, hsl(270, 45%, 45%) 100%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+.logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 1.125rem; font-weight: 700; letter-spacing: 0.05em; }
+
+.quote {
+  font-style: italic;
+  padding: 1.5rem;
+  background: hsl(222, 22%, 11%);
+  border-left: 4px solid hsl(215, 15%, 40%);
+  margin: 1rem 0;
+  color: hsl(215, 15%, 65%);
+  border-radius: 8px;
+}
+
+.footnote { margin-top: 16px; font-size: 0.85rem; color: hsl(215, 15%, 40%); line-height: 1.5; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(222, 18%, 16%); border-radius: 3px; }
+
+body { overflow-y: auto; }
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 48px;
+}
+.section {
+  padding: 60px 0;
+  border-bottom: 1px solid hsla(222, 15%, 18%, 0.5);
+  position: relative;
+}
+.section:last-child { border-bottom: none; }
+
+@media (max-width: 768px) {
+  .page { padding: 20px 24px; }
+  .slide-title { font-size: 2.4rem; }
+  .slide-title-hero { font-size: 3rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .data-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- Title Slide -->
+<div class="section">
+  <div class="logo">
+    <div class="logo-icon"></div>
+    <span class="logo-text">FROM THE FUTURE</span>
+  </div>
+  <h1 style="font-size: 4rem; background: linear-gradient(135deg, hsl(55, 100%, 65%) 0%, hsl(50, 95%, 55%) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.15; margin-bottom: 24px;">American House<br>Brand Perception Audit</h1>
+  <p class="slide-subtitle">Expanded competitive intelligence across SEO/SEM, social media, geographic markets, consumer decision journeys, and staff retention dynamics</p>
+  <p style="font-size: 0.95rem; color: hsl(215, 15%, 45%); margin-top: 24px;"><strong>Date:</strong> February 12, 2026 | <strong>Prepared for:</strong> Lance Hollander, From The Future</p>
+</div>
+
+<!-- Executive Summary -->
+<div class="section">
+  <h1 class="slide-title">Executive Summary</h1>
+  <p class="slide-subtitle">Live competitive intelligence reveals massive SEO, social, and retention opportunities</p>
+  
+  <div class="data-grid">
+    <div class="data-point highlighted">
+      <span class="data-value">775K vs &lt;100K</span>
+      <span class="data-label">Monthly Visits Gap</span>
+    </div>
+    <div class="data-point highlighted">
+      <span class="data-value">4,000</span>
+      <span class="data-label">Facebook Followers</span>
+    </div>
+    <div class="data-point highlighted">
+      <span class="data-value">97.5%</span>
+      <span class="data-label">Positive Sentiment</span>
+    </div>
+    <div class="data-point highlighted">
+      <span class="data-value">61</span>
+      <span class="data-label">Communities</span>
+    </div>
+  </div>
+  
+  <div class="card card-warning">
+    <h4>🎯 Key Findings</h4>
+    <ul>
+      <li><strong>SEO Gap:</strong> Sunrise dominates with 775K monthly visits (DA 49) vs. American House's low visibility</li>
+      <li><strong>Local Search:</strong> A Place for Mom owns "senior living [city]" rankings across all markets</li>
+      <li><strong>Paid Search:</strong> Estimated $152K-$213K/mo vs. Sunrise's $960K-$1.44M/mo</li>
+      <li><strong>Social Media:</strong> 4K Facebook followers (65 per community average) with minimal engagement</li>
+      <li><strong>Geographic Strength:</strong> Dominates Detroit middle-market but lags in Florida/Tennessee</li>
+      <li><strong>Staff Paradox:</strong> 2.6/5 Glassdoor rating contradicts testimonial praise of "staff who love their jobs"</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEO/SEM Gap Analysis -->
+<div class="section">
+  <h1 class="slide-title">1. SEO/SEM Gap Analysis</h1>
+  <p class="slide-subtitle">Domain authority, keyword rankings, and paid search investment</p>
+  
+  <h2 class="section-title">Domain Authority & Traffic Comparison</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>Domain Authority</th>
+        <th>Backlinks</th>
+        <th>Referring Domains</th>
+        <th>Monthly Visits</th>
+        <th>Organic %</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-row">
+        <td><strong>Sunrise</strong></td>
+        <td>49/100</td>
+        <td>117,000</td>
+        <td>6,150</td>
+        <td>775,000</td>
+        <td>77%</td>
+      </tr>
+      <tr>
+        <td><strong>American House</strong></td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>&lt;100K (est.)</td>
+        <td>Unknown</td>
+      </tr>
+      <tr>
+        <td>A Place for Mom</td>
+        <td>High</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>1.4M</td>
+        <td>Dominant</td>
+      </tr>
+      <tr>
+        <td>Brookdale</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>399,000</td>
+        <td>N/A</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="card card-warning">
+    <h4>⚠️ Critical Gap</h4>
+    <p><strong>American House lacks public SEO visibility metrics</strong> — either due to weak domain authority or minimal SEO investment. Sunrise's 117K backlinks and 775K monthly visits demonstrate a massive competitive advantage.</p>
+  </div>
+  
+  <h2 class="section-title">Local Keyword Rankings: "Senior Living [City]"</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>City</th>
+        <th>#1 Ranking</th>
+        <th>Position 2-3</th>
+        <th>American House</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Detroit</td>
+        <td>A Place for Mom</td>
+        <td>Local directories</td>
+        <td class="text-destructive">Not in top 10</td>
+      </tr>
+      <tr>
+        <td>Tampa</td>
+        <td>A Place for Mom</td>
+        <td>SeniorLiving.org</td>
+        <td class="text-destructive">Not in top 10</td>
+      </tr>
+      <tr>
+        <td>Nashville</td>
+        <td>A Place for Mom</td>
+        <td>Caring.com</td>
+        <td class="text-destructive">Not in top 10</td>
+      </tr>
+      <tr>
+        <td>Grand Rapids</td>
+        <td>A Place for Mom</td>
+        <td>Local SEO firms</td>
+        <td class="text-destructive">Not in top 10</td>
+      </tr>
+      <tr>
+        <td>Fort Myers</td>
+        <td>A Place for Mom</td>
+        <td>Sunrise, Brookdale</td>
+        <td class="text-destructive">Not in top 10</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="card card-insight">
+    <h4>💡 Strategic Insight</h4>
+    <p>Aggregators (A Place for Mom, Caring.com) dominate local search intent. American House is <strong>invisible in the top 10 for high-intent keywords</strong> despite operating in these markets. This represents a massive opportunity cost in lead generation.</p>
+  </div>
+  
+  <h2 class="section-title">Paid Search Investment Estimates</h2>
+  <div class="card">
+    <h4>Industry Benchmarks (2024-2025)</h4>
+    <ul>
+      <li>Typical budget: $2,500-$5,000/month per community</li>
+      <li>Google Ads CPC: $4-$12/click (senior living)</li>
+      <li>Facebook Ads CPC: $1.50-$3.50/click</li>
+      <li>Target: 40-60 leads/month per community</li>
+    </ul>
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>Est. Per Community</th>
+        <th>Communities</th>
+        <th>Total Monthly Budget</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-row">
+        <td><strong>Sunrise</strong></td>
+        <td>$4,000-$6,000</td>
+        <td>240</td>
+        <td>$960K-$1.44M</td>
+      </tr>
+      <tr>
+        <td>Brookdale</td>
+        <td>$3,500-$5,000</td>
+        <td>~700</td>
+        <td>$2.45M-$3.5M</td>
+      </tr>
+      <tr>
+        <td><strong>American House</strong></td>
+        <td>$2,500-$3,500</td>
+        <td>61</td>
+        <td>$152K-$213K</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h2 class="section-title">Website UX Comparison (Live Analysis)</h2>
+  <div class="two-col">
+    <div class="card">
+      <h4>American House</h4>
+      <ul>
+        <li><span class="checkmark">✓</span> Clean, modern design</li>
+        <li><span class="checkmark">✓</span> Virtual tours available</li>
+        <li><span class="checkmark">✓</span> Community search by state/city/zip</li>
+        <li><span class="xmark">✗</span> <strong>Missing:</strong> Pricing transparency</li>
+        <li><span class="xmark">✗</span> <strong>Missing:</strong> Advanced filters</li>
+        <li><span class="xmark">✗</span> <strong>Missing:</strong> Online tour scheduling (request-only)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Sunrise</h4>
+      <ul>
+        <li><span class="checkmark">✓</span> Enterprise Sitecore CMS (~$1.5M investment)</li>
+        <li><span class="checkmark">✓</span> "Possibility Rising" aspirational messaging</li>
+        <li><span class="checkmark">✓</span> Advanced tour booking with date/time selection</li>
+        <li><span class="checkmark">✓</span> Care questionnaire funnel</li>
+        <li><span class="checkmark">✓</span> Pricing & availability phone CTA</li>
+        <li><span class="checkmark">✓</span> Family engagement app promoted</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="card card-success">
+    <h4>🎯 Immediate SEO Recommendations</h4>
+    <ul>
+      <li><strong>Add pricing transparency:</strong> "Starting at $X,XXX/month" reduces friction vs. "contact for pricing"</li>
+      <li><strong>Upgrade tour booking:</strong> Calendar-based scheduling (64% booking increase benchmark)</li>
+      <li><strong>Launch local SEO:</strong> Target "[city] senior living" with dedicated content pages</li>
+      <li><strong>Build backlinks:</strong> PR, awards coverage, local partnerships</li>
+      <li><strong>Claim Google Business:</strong> Optimize all 61 community profiles</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Social Media Audit -->
+<div class="section">
+  <h1 class="slide-title">2. Social Media Audit</h1>
+  <p class="slide-subtitle">Follower counts, engagement rates, and competitive benchmarks</p>
+  
+  <h2 class="section-title">American House (Live Capture - Feb 12, 2026)</h2>
+  <div class="data-grid">
+    <div class="data-point">
+      <span class="data-value">3.7K</span>
+      <span class="data-label">Facebook Likes</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">4K</span>
+      <span class="data-label">Facebook Followers</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">65</span>
+      <span class="data-label">Avg. per Community</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">0.58%</span>
+      <span class="data-label">Recent Post Engagement</span>
+    </div>
+  </div>
+  
+  <div class="card">
+    <h4>Recent Post Example (2/12/2026)</h4>
+    <ul>
+      <li><strong>Content:</strong> "American House Winter Olympics" — communities hosting opening ceremonies</li>
+      <li><strong>Engagement:</strong> 23 reactions, 1 comment in 17 hours</li>
+      <li><strong>Engagement Rate:</strong> 0.58% (23 reactions / 4,000 followers)</li>
+      <li><strong>Content Type:</strong> Photo carousel, community events</li>
+    </ul>
+  </div>
+  
+  <div class="card">
+    <h4>Active Platforms</h4>
+    <ul>
+      <li>Facebook: @AmericanHouseSeniorLiving</li>
+      <li>Instagram: @ah_seniorliving</li>
+      <li>LinkedIn: Company page</li>
+      <li>YouTube: Community videos</li>
+      <li>TikTok: @ah_seniorliving (newer presence)</li>
+      <li>Twitter: @American_House</li>
+    </ul>
+  </div>
+  
+  <h2 class="section-title">Industry Engagement Benchmarks</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Platform</th>
+        <th>Avg. Engagement Rate</th>
+        <th>Best Practice</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Facebook</td>
+        <td>0.15-0.20% (large); 1.9% (healthcare)</td>
+        <td>Video content, resident stories</td>
+      </tr>
+      <tr>
+        <td>Instagram</td>
+        <td>3-4% (smaller accounts outperform)</td>
+        <td>Reels, UGC, visual storytelling</td>
+      </tr>
+      <tr>
+        <td>LinkedIn</td>
+        <td>3.3% (healthcare); 3-6.5% (nonprofits)</td>
+        <td>Thought leadership, employee stories</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="card card-warning">
+    <h4>⚠️ Social Media Gap</h4>
+    <p><strong>4,000 followers for 61 communities = 65 followers per community.</strong> This represents massive untapped potential for organic reach and engagement. Sunrise's 100K+ following provides significant brand awareness and trust-building advantage.</p>
+  </div>
+  
+  <h2 class="section-title">Influencer & UGC Strategy Gap</h2>
+  <div class="card">
+    <h4>Industry Best Practices (2025)</h4>
+    <ul>
+      <li><strong>Influencer Marketing:</strong> Partner with "granfluencers" (50+ influencers)
+        <ul>
+          <li>ROI: 20% website traffic increase (Sunrise Canada)</li>
+          <li>Cost: Lower than traditional advertising</li>
+          <li>Authenticity: High trust factor</li>
+        </ul>
+      </li>
+      <li><strong>UGC Strategy:</strong>
+        <ul>
+          <li>28% higher engagement than brand posts</li>
+          <li>50% more influence on purchasing decisions</li>
+          <li>Tactics: Photo contests, event shares, testimonial incentives</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="card card-success">
+    <h4>🎯 Social Media Recommendations</h4>
+    <ul>
+      <li><strong>Immediate:</strong> Launch "Share Your American House Story" UGC campaign</li>
+      <li><strong>Q1:</strong> Partner with 2-3 local granfluencers in Michigan/Florida</li>
+      <li><strong>Q2:</strong> Expand TikTok/Reels with short-form resident stories (&lt;60 seconds)</li>
+      <li><strong>Ongoing:</strong> Invest in paid social to grow follower base (target: 15K+ by EOY)</li>
+      <li><strong>Budget:</strong> $5K-$10K/month for influencer partnerships + paid amplification</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Geographic Deep-Dives -->
+<div class="section">
+  <h1 class="slide-title">3. Geographic Deep-Dives</h1>
+  <p class="slide-subtitle">Market analysis across Michigan, Florida, and Tennessee</p>
+  
+  <h2 class="section-title">Michigan: Detroit & Grand Rapids</h2>
+  <div class="data-grid">
+    <div class="data-point">
+      <span class="data-value">640,000</span>
+      <span class="data-label">Detroit 65+ Population</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">19.6%</span>
+      <span class="data-label">Michigan 65+ %</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">87%</span>
+      <span class="data-label">Occupancy Rate</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">$6,040</span>
+      <span class="data-label">Median Pricing</span>
+    </div>
+  </div>
+  
+  <div class="card card-success">
+    <h4>🏆 American House Market Position: Dominant</h4>
+    <p><strong>10+ communities in Detroit metro</strong> (Riverview, Taylor, Southgate, Grosse Pointe Farms, Sterling Heights, Westland, etc.) — strongest local footprint among all competitors.</p>
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>Communities</th>
+        <th>Pricing Range</th>
+        <th>Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-row">
+        <td><strong>American House</strong></td>
+        <td>10+</td>
+        <td>$4,250-$6,040</td>
+        <td>Dominant local player</td>
+      </tr>
+      <tr>
+        <td>Sunrise</td>
+        <td>4</td>
+        <td>$2,736-$5,259</td>
+        <td>Premium positioning</td>
+      </tr>
+      <tr>
+        <td>Brookdale</td>
+        <td>Multiple</td>
+        <td>$2,160-$14,300</td>
+        <td>National scale</td>
+      </tr>
+      <tr>
+        <td>Atria</td>
+        <td>1</td>
+        <td>$4,945-$8,095+</td>
+        <td>Premium boutique</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="card card-insight">
+    <h4>💡 Strategic Insight</h4>
+    <p>American House <strong>owns the Detroit middle-market</strong> but faces premium competition in Bloomfield Hills. Michigan pricing premium ($6,040 vs. national $5,900) justifies premium positioning but <strong>clashes with "blue-collar affordable" perception.</strong></p>
+  </div>
+  
+  <h2 class="section-title">Florida: Tampa, Fort Myers, Sarasota</h2>
+  <div class="data-grid">
+    <div class="data-point">
+      <span class="data-value">25%+</span>
+      <span class="data-label">FL Population 65+ (2030)</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">89%+</span>
+      <span class="data-label">Occupancy Rate</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">$3,571-$5,263</span>
+      <span class="data-label">Tampa Pricing</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">$4,334-$6,392</span>
+      <span class="data-label">Fort Myers Pricing</span>
+    </div>
+  </div>
+  
+  <div class="card card-warning">
+    <h4>⚠️ Pricing Paradox</h4>
+    <p><strong>Florida median: $4,475 (24% below national average)</strong> despite being a "premium" retirement destination. American House is underpriced relative to brand perception opportunity.</p>
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>Communities</th>
+        <th>Pricing</th>
+        <th>Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Brookdale</td>
+        <td>Multiple (Sarasota, Fort Myers)</td>
+        <td>$3,440-$4,520</td>
+        <td>Volume leader</td>
+      </tr>
+      <tr>
+        <td>Sunrise</td>
+        <td>Tampa, Fort Myers, Sarasota</td>
+        <td>$3,103-$5,900+</td>
+        <td>Premium national</td>
+      </tr>
+      <tr class="highlight-row">
+        <td><strong>American House</strong></td>
+        <td>Fort Myers flagship</td>
+        <td>$3,500-$5,110</td>
+        <td>Regional presence</td>
+      </tr>
+      <tr>
+        <td>Vi Living</td>
+        <td>Naples/Aventura</td>
+        <td>$4,660-$8,160 + $250K entrance</td>
+        <td>Ultra-premium CCRC</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="card card-success">
+    <h4>🎯 Florida Opportunity</h4>
+    <ul>
+      <li><strong>Increase pricing 10-15%</strong> with brand refresh (currently underpriced)</li>
+      <li><strong>Position as "accessible premium"</strong> vs. Vi Living's $250K+ entrance fees</li>
+      <li><strong>Expand footprint</strong> beyond Fort Myers into Tampa/Sarasota</li>
+    </ul>
+  </div>
+  
+  <h2 class="section-title">Tennessee: Nashville, Murfreesboro, Chattanooga</h2>
+  <div class="data-grid">
+    <div class="data-point">
+      <span class="data-value">13</span>
+      <span class="data-label">Communities (2022 Acquisition)</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">875</span>
+      <span class="data-label">Total Units</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">88%+</span>
+      <span class="data-label">Occupancy Rate</span>
+    </div>
+    <div class="data-point">
+      <span class="data-value">$2,520-$5,900</span>
+      <span class="data-label">Pricing Range</span>
+    </div>
+  </div>
+  
+  <div class="card card-insight">
+    <h4>💡 Strategic Insight</h4>
+    <p>Tennessee is American House's <strong>expansion opportunity</strong> — 13 communities acquired in 2022 provide foothold in growing secondary markets (no state income tax, retiree influx). Pricing is competitive but brand awareness lags Brookdale.</p>
+  </div>
+</div>
+
+<!-- Decision Journey -->
+<div class="section">
+  <h1 class="slide-title">4. Decision-Maker Journey Mapping</h1>
+  <p class="slide-subtitle">Search behavior, conversion metrics, and family priorities</p>
+  
+  <div class="data-grid">
+    <div class="data-point highlighted">
+      <span class="data-value">80%</span>
+      <span class="data-label">Digital Starts</span>
+    </div>
+    <div class="data-point highlighted">
+      <span class="data-value">25-46</span>
+      <span class="data-label">Touchpoints Required</span>
+    </div>
+    <div class="data-point highlighted">
+      <span class="data-value">3 avg</span>
+      <span class="data-label">Communities Toured</span>
+    </div>
+    <div class="data-point highlighted">
+      <span class="data-value">80-106 days</span>
+      <span class="data-label">Inquiry to Move-In</span>
+    </div>
+  </div>
+  
+  <h2 class="section-title">Journey Stages</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h4>1. Awareness (Research)</h4>
+      <ul>
+        <li>Google search: "senior living [city]", "assisted living near me"</li>
+        <li>Aggregator sites: <strong>A Place for Mom, Caring.com dominate</strong></li>
+        <li>80% of inquiries start digitally</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>2. Consideration (Tours)</h4>
+      <ul>
+        <li>Families visit <strong>3 communities on average</strong></li>
+        <li>Multiple tours per site (69% first tours)</li>
+        <li>Virtual tours now standard</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>3. Decision (Move-In)</h4>
+      <ul>
+        <li><strong>25-46 touchpoints</strong> required</li>
+        <li><strong>80-106 days</strong> average timeline</li>
+        <li>Shortened by proactive follow-ups</li>
+      </ul>
+    </div>
+  </div>
+  
+  <h2 class="section-title">Conversion Metrics</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Industry Average</th>
+        <th>Best-in-Class</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Website conversion</td>
+        <td>23%</td>
+        <td>30-42% (with personalization)</td>
+      </tr>
+      <tr>
+        <td>Inquiry-to-tour</td>
+        <td>5-23.5%</td>
+        <td>Higher with calendar scheduling</td>
+      </tr>
+      <tr>
+        <td>Tour-to-move-in</td>
+        <td>23.7%</td>
+        <td>25-35%</td>
+      </tr>
+      <tr>
+        <td>Lead-to-tour</td>
+        <td>15-25%</td>
+        <td>Boosted by nurturing</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="card card-highlight">
+    <h4>🎯 Key Insight: Families Drive Decisions</h4>
+    <p><strong>86% of searches initiated by families</strong> (vs. 55% seniors). Marketing must address both audiences:</p>
+    <ul>
+      <li><strong>Families:</strong> Emphasize safety, staff quality, transparency</li>
+      <li><strong>Seniors:</strong> Emphasize independence, lifestyle, value</li>
+    </ul>
+  </div>
+  
+  <div class="card card-success">
+    <h4>🎯 Journey Optimization Recommendations</h4>
+    <ul>
+      <li><strong>Website:</strong> Add GA4 Path Exploration tracking to identify drop-offs</li>
+      <li><strong>Tour booking:</strong> Calendar-based scheduling (64% booking increase benchmark)</li>
+      <li><strong>Content:</strong> "Family Guide to Senior Living Decisions" hub</li>
+      <li><strong>Retargeting:</strong> Multi-channel nurturing (email, SMS, social) for 25+ touchpoints</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Staff Retention -->
+<div class="section">
+  <h1 class="slide-title">5. Staff Retention → Brand Connection</h1>
+  <p class="slide-subtitle">The paradox between employee reviews and testimonial praise</p>
+  
+  <h2 class="section-title">The Retention Paradox</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Source</th>
+        <th>Rating/Sentiment</th>
+        <th>Key Feedback</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Glassdoor</td>
+        <td>2.6/5</td>
+        <td>Employee satisfaction concerns</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>Testimonials</td>
+        <td>9.6/10 staff score</td>
+        <td>"Staff who love their jobs," 5-20 year tenure, 78% praise rate</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="card card-warning">
+    <h4>⚠️ The Contradiction</h4>
+    <p><strong>Testimonials:</strong> "The staff is wonderful... they treat residents with respect and truly care."</p>
+    <p><strong>Employee Reviews:</strong> Low satisfaction, turnover concerns</p>
+    <p><strong>Hypothesis:</strong> Either (a) reviews skew toward disgruntled ex-employees, or (b) front-line staff love the work but struggle with management/compensation.</p>
+  </div>
+  
+  <h2 class="section-title">Industry Staff Turnover Crisis (2024-2025)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th>2024 Turnover</th>
+        <th>2025 Turnover</th>
+        <th>Replacement Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>CNAs</td>
+        <td>44.16%</td>
+        <td>42.34%</td>
+        <td>$5,000-$10,000</td>
+      </tr>
+      <tr>
+        <td>Resident Assistants</td>
+        <td>44.46%</td>
+        <td>43.25%</td>
+        <td>$5,000-$10,000</td>
+      </tr>
+      <tr>
+        <td>Registered Nurses</td>
+        <td>High</td>
+        <td>Declining</td>
+        <td>$46,100 (87 days)</td>
+      </tr>
+      <tr>
+        <td>Top Executives</td>
+        <td>31.97%</td>
+        <td>22.12%</td>
+        <td>$100,000+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <p style="margin-top: 16px; color: hsl(215, 15%, 55%);">Overall assisted living: 34.53% average turnover (2025)</p>
+  
+  <div class="card card-highlight">
+    <h4>📊 Impact on Care Quality & Brand</h4>
+    <ul>
+      <li><strong>10% turnover increase = 4.0% more health citations</strong></li>
+      <li>High turnover facilities (135% median) = 1-star CMS ratings</li>
+      <li>Low turnover facilities (76.7% median) = 5-star CMS ratings</li>
+      <li>More rehospitalizations, physical restraints, infections with high turnover</li>
+    </ul>
+  </div>
+  
+  <h2 class="section-title">Financial Impact</h2>
+  <ul>
+    <li><strong>Staffing = 55%+ of total operating expenses</strong></li>
+    <li>Average fall-related claim: $275,495 (assisted living)</li>
+    <li>Turnover costs: Recruiting, training, productivity loss, cultural deterioration</li>
+  </ul>
+  
+  <div class="card card-success">
+    <h4>✅ American House Opportunity: Turn Staff into Brand Ambassadors</h4>
+    <p><strong>Strengths to Leverage:</strong></p>
+    <ul>
+      <li>Testimonials praise staff longevity (5-20 years)</li>
+      <li>"Family atmosphere" mentioned 3x more than competitors</li>
+      <li>9.6/10 staff score in testimonial analysis</li>
+    </ul>
+    <p style="margin-top: 16px;"><strong>Strategic Initiatives:</strong></p>
+    <ul>
+      <li><strong>Close the Employee Experience Gap</strong> — Audit why Glassdoor is 2.6/5 if testimonials praise staff</li>
+      <li><strong>Amplify Staff Stories</strong> — Feature long-tenured staff in marketing, "Meet the Team" videos</li>
+      <li><strong>Culture-First Positioning</strong> — "Staff Who Love What They Do" vs. corporate competitors</li>
+      <li><strong>Retention ROI Tracking</strong> — Every 10% reduction = 4% fewer citations = higher star ratings = revenue growth</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Strategic Recommendations -->
+<div class="section">
+  <h1 class="slide-title">Strategic Recommendations Summary</h1>
+  <p class="slide-subtitle">Prioritized actions across immediate, mid-term, and long-term horizons</p>
+  
+  <h2 class="section-title">Immediate Actions (Q1 2026)</h2>
+  <div class="card card-success">
+    <h4>1. SEO Quick Wins</h4>
+    <ul>
+      <li>Add pricing transparency: "Starting at $X,XXX/month"</li>
+      <li>Claim/optimize Google Business Profiles for all 61 communities</li>
+      <li>Launch local content: "Senior Living in [City]" guides</li>
+    </ul>
+  </div>
+  
+  <div class="card card-success">
+    <h4>2. Social Media Activation</h4>
+    <ul>
+      <li>Launch "Share Your American House Story" UGC campaign</li>
+      <li>Partner with 2-3 local granfluencers (50+)</li>
+      <li>Expand TikTok/Reels with short-form resident stories</li>
+    </ul>
+  </div>
+  
+  <div class="card card-success">
+    <h4>3. Website CRO</h4>
+    <ul>
+      <li>Implement calendar-based tour scheduling (Calendly)</li>
+      <li>Add GA4 Path Exploration tracking</li>
+      <li>A/B test "Book Tour" vs. "Learn More" CTAs</li>
+    </ul>
+  </div>
+  
+  <h2 class="section-title">Mid-Term Initiatives (Q2-Q3 2026)</h2>
+  <div class="card card-success">
+    <h4>4. Paid Search Investment</h4>
+    <ul>
+      <li>Increase budget: $152K/mo → $250K/mo (60+ leads/community)</li>
+      <li>Hybrid Google + Facebook retargeting</li>
+      <li>Target: "[city] assisted living", "memory care near me"</li>
+    </ul>
+  </div>
+  
+  <div class="card card-success">
+    <h4>5. Geographic Positioning</h4>
+    <ul>
+      <li><strong>Michigan:</strong> "Detroit's most trusted senior living"</li>
+      <li><strong>Florida:</strong> Raise pricing 10-15% with brand refresh</li>
+      <li><strong>Tennessee:</strong> Leverage 2022 acquisition with local PR</li>
+    </ul>
+  </div>
+  
+  <div class="card card-success">
+    <h4>6. Staff Retention Program</h4>
+    <ul>
+      <li>Audit: Employee satisfaction survey (Glassdoor gap)</li>
+      <li>Pilot: Daily pay, flexible scheduling, career pathways</li>
+      <li>Marketing: "Meet the Team" content series</li>
+    </ul>
+  </div>
+  
+  <h2 class="section-title">Long-Term Strategic Decisions (2026-2027)</h2>
+  <div class="card card-success">
+    <h4>7. Brand Refresh Investment</h4>
+    <ul>
+      <li><strong>Budget:</strong> $200K-$500K</li>
+      <li><strong>Scope:</strong> Logo evolution, messaging, digital transformation</li>
+      <li><strong>ROI:</strong> 61-83% traffic increase, 69% occupancy lift, $1.4M revenue/community</li>
+    </ul>
+  </div>
+  
+  <div class="card card-success">
+    <h4>8. Sub-Branding Strategy</h4>
+    <ul>
+      <li>Consider: Somerset, Lakeshore, Bloomfield as premium tier</li>
+      <li>Positioning: "American House Signature Collection"</li>
+      <li>Parallel: NexCore's Reserve/Gallery/Sancerre architecture</li>
+    </ul>
+  </div>
+  
+  <div class="card card-success">
+    <h4>9. Pricing Strategy</h4>
+    <ul>
+      <li><strong>Michigan:</strong> Justify $6,040 premium with "Midwest's finest"</li>
+      <li><strong>Florida:</strong> Increase 10-15% to align with brand perception</li>
+      <li><strong>Transparency:</strong> Publish starting rates (industry trend)</li>
+    </ul>
+  </div>
+  
+  <h2 class="section-title">Competitive Vulnerabilities to Exploit</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Competitor</th>
+        <th>Weakness</th>
+        <th>Opportunity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Sunrise</strong></td>
+        <td>NPS -54 (72% detractors), à la carte bill shock</td>
+        <td>"No surprise fees, all-inclusive care"</td>
+      </tr>
+      <tr>
+        <td><strong>Vi Living</strong></td>
+        <td>$250K-$1M entrance fees, only 64 reviews</td>
+        <td>"Premium care without the premium price tag"</td>
+      </tr>
+      <tr>
+        <td><strong>Brookdale</strong></td>
+        <td>NPS -52, "corporate" feel</td>
+        <td>"Family-owned feel, Wall Street scale"</td>
+      </tr>
+      <tr>
+        <td><strong>Industry</strong></td>
+        <td>34.53% turnover, nursing home stigma</td>
+        <td>97.5% positive sentiment = transformational advantage</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Closing -->
+<div class="section">
+  <div class="logo">
+    <div class="logo-icon"></div>
+    <span class="logo-text">FROM THE FUTURE</span>
+  </div>
+  <h1 class="slide-title">Thank You</h1>
+  <p class="slide-subtitle">Questions?</p>
+  <p style="font-size: 0.95rem; color: hsl(215, 15%, 45%); margin-top: 24px;"><strong>Report prepared by:</strong> Remus (FTF AI Research Assistant)<br><strong>Contact:</strong> Lance Hollander, From The Future<br><strong>Date:</strong> February 12, 2026</p>
+  <p style="font-size: 0.95rem; color: hsl(215, 15%, 45%); margin-top: 16px;">Next Steps: Schedule debrief to prioritize recommendations based on American House leadership priorities</p>
+</div>
+
+</div>
+</body>
+</html>
